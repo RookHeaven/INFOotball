@@ -1,1 +1,16 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  background: url('./assets/images/green-plastic-grass-textured-backdrop.jpg') center / cover no-repeat;
+}
+
+
+
 
