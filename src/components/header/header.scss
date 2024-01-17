@@ -1,0 +1,40 @@
+@import '../../style/style';
+
+.header {
+  border-bottom: 1px solid #f6f6f6;
+  padding: 40px 0;
+
+  .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    display: flex;
+
+    a {
+      display: flex;
+      align-items: center;
+      margin-right: 15px;
+
+      img {
+        @include hover-focus {
+          @include rotate-animation;
+          animation: rotate $rotateDuration infinite;
+        }
+      }
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 800;
+      margin: 0;
+    }
+
+    p {
+      margin: 0;
+      color: $suva-gray;
+    }
+  }
+}

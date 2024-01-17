@@ -1,0 +1,50 @@
+@import '../../style/style';
+
+.button {
+  display: inline-block;
+  border-radius: 30px;
+  padding: 10px 20px;
+  min-width: 100px;
+  text-align: center;
+  cursor: pointer;
+  user-select: none;
+  transition: all $trans-default;
+
+  a {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: $white;
+  }
+
+  &__delimiter {
+    width: 1px;
+    height: 25px;
+    background-color: $white-25;
+    margin-left: 14px;
+    margin-right: 14px;
+  }
+
+  &--favorites {
+    display: flex;
+    align-items: center;
+    line-height: 23px;
+    background-color: $jade;
+    color: $white;
+  }
+
+  &:disabled,
+  &--disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  @include hover-focus {
+    background-color: darken($jade, 8%);;
+  }
+
+  @include active {
+    background-color: darken($jade, 12%);
+    opacity: 0.8;
+  }
+}

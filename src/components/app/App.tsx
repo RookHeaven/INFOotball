@@ -1,14 +1,13 @@
-import './app.scss'
+import Header from "../header/Header.tsx";
+import './app.scss';
 
 function App() {
 
   return (
     <div className='wrapper'>
-      <p>Hello</p>
-      <p>Hello</p>
-      <p>Hello</p>
+      <Header/>
     </div>
   )
 }
 
-export default App
+export default App;

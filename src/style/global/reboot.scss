@@ -1,3 +1,5 @@
+@import '../../style/variables';
+
 *,
 *:before,
 *:after {
@@ -7,9 +9,8 @@
 body {
   height: 100vh;
   margin: 0 auto;
-  font-family: 'Montserrat', sans-serif;
+  font-family: $ff-montserrat;
   font-size: 16px;
   background: url('../assets/images/green-plastic-grass-textured-backdrop.jpg') center / cover no-repeat;
   padding: 2rem;
-  text-align: center;
 }

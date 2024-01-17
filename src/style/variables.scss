@@ -1,3 +1,18 @@
 // Project palette
 
 $white:                   #ffffff;
+$white-25:                rgba(255,255,255,0.25);
+$jade:                    #00cc6f;
+$suva-gray:               #8b8b8b;
+
+// Typography
+// ---------------------------------
+
+$ff-montserrat:           'Montserrat', 'Arial', sans-serif;
+
+// Animation
+// ---------------------------------
+
+$tf-default:              ease;
+$trans-default:           0.3s $tf-default;
+$rotateDuration:          2.5s;
