@@ -1,37 +1,18 @@
-@import '../../style/style';
+@import '../../style/variables';
+@import '../../style/mixins';
 
 .button {
-  display: inline-block;
-  border-radius: 30px;
-  padding: 10px 20px;
+  display: inline-flex;
+  align-items: center;
   min-width: 100px;
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: none;
   text-align: center;
+  text-decoration: none;
   cursor: pointer;
   user-select: none;
   transition: all $trans-default;
-
-  a {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-    color: $white;
-  }
-
-  &__delimiter {
-    width: 1px;
-    height: 25px;
-    background-color: $white-25;
-    margin-left: 14px;
-    margin-right: 14px;
-  }
-
-  &--favorites {
-    display: flex;
-    align-items: center;
-    line-height: 23px;
-    background-color: $jade;
-    color: $white;
-  }
 
   &:disabled,
   &--disabled {
@@ -46,5 +27,42 @@
   @include active {
     background-color: darken($jade, 12%);
     opacity: 0.8;
+  }
+
+  &__delimiter {
+    width: 1px;
+    height: 25px;
+    background-color: $white-25;
+    margin-left: 14px;
+    margin-right: 14px;
+  }
+
+  &--favorites {
+    align-items: center;
+    background-color: $jade;
+    color: $white;
+  }
+
+  &--tab {
+    padding: 14px 30px;
+    font-weight: 700;
+    background-color: transparent;
+    border: 1px solid $jade;
+    color: inherit;
+
+    @include hover-focus {
+      background-color: darken($jade, 2%);
+      color: $white;
+    }
+
+    @include active {
+      background-color: darken($jade, 5%);
+    }
+
+    &.active {
+      border: 1px solid transparent;
+      background-color: $jade;
+      color: $white;
+    }
   }
 }

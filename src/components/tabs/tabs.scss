@@ -1,0 +1,14 @@
+@import '../../style/variables';
+
+.tabs {
+  ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style-type: none;
+      margin-right: 10px;
+    }
+  }
+}

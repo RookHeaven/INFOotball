@@ -3,16 +3,19 @@ import './button.scss';
 // @ts-expect-error
 import Heart from '../../assets/icons/heart.svg?react';
 
-function Button() {
-  return (
-    <div className='button button--favorites'>
-      <a href="#">
-        <Heart style={{color: 'white', marginRight: '8px'}}/>
-        <span>3</span>
-        <div className='button__delimiter'></div>
+const Button = ({isLinkButton, isTabButton, onClickTabButton, activeTabClassName, children}) => {
+  const linkButton = <a
+        className='button button--favorites' href="#">
+          <Heart style={{color: 'white', marginRight: '8px'}}/>
+          <span>3</span>
+          <div className='button__delimiter'></div>
+          {children}
       </a>
-      Clubs
-    </div>
+
+  const tabButton = <button onClick={onClickTabButton} className={activeTabClassName ? `button active button--tab` : 'button button--tab'}>{children}</button>
+
+  return (
+    (isLinkButton && linkButton) || (isTabButton && tabButton)
   )
 }
 
