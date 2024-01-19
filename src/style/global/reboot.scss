@@ -23,6 +23,15 @@ body {
     justify-content: space-between;
     align-items: center;
   }
+
+  &__title {
+    font-size: 28px;
+    font-weight: 600;
+  }
+
+  &__clubs {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .visually-hidden {

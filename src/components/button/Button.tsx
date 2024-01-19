@@ -3,7 +3,7 @@ import './button.scss';
 // @ts-expect-error
 import Heart from '../../assets/icons/heart.svg?react';
 
-const Button = ({isLinkButton = false, isTabButton = false, onClickTabButton, isActiveTab, children}) => {
+const Button = ({isLinkButton = false, isTabButton = false, isFavoriteButton = false, onClickTabButton = undefined, isActiveTab = false, children}) => {
   const linkButton = <a
     className='button button--favorites' href="#">
       <Heart style={{color: 'white', marginRight: '8px'}}/>
@@ -11,6 +11,12 @@ const Button = ({isLinkButton = false, isTabButton = false, onClickTabButton, is
       <div className='button__delimiter'></div>
       {children}
     </a>
+
+  const favoriteButton = <button
+    className='button button--favorite'>
+    <Heart style={{color: 'jade', marginRight: '8px'}}/>
+    {children}
+  </button>
 
   const tabButton = <button
       onClick={onClickTabButton}
@@ -21,6 +27,7 @@ const Button = ({isLinkButton = false, isTabButton = false, onClickTabButton, is
     <>
       {isLinkButton && linkButton}
       {isTabButton && tabButton}
+      {isFavoriteButton && favoriteButton}
     </>
   )
 }

@@ -2,6 +2,7 @@ import Header from "../header/Header.tsx";
 import Tabs from "../tabs/Tabs.tsx";
 import Sort from "../sort/Sort.tsx";
 import './app.scss';
+// import ClubCard from "../clubCard/ClubCard.tsx";
 
 const App = () => {
 
@@ -13,6 +14,10 @@ const App = () => {
           <div className='content__sorting'>
             <Tabs/>
             <Sort/>
+          </div>
+          <h2 className='content__title'>All clubs</h2>
+          <div className='content__clubs'>
+            {/*<ClubCard/>*/}
           </div>
         </div>
       </div>

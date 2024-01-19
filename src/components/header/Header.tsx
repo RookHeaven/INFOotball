@@ -8,17 +8,14 @@ const Header = () => {
       <div className='container'>
         <div className='header__logo'>
           <a href='#'>
-            <img src={logo} alt="Logo INFOotball." width='36' height='36'/>
+            <img src={logo} alt="Logo INFOotball." width='42' height='42'/>
           </a>
           <div>
             <h1>INFOotball</h1>
             <p>football club information app</p>
           </div>
         </div>
-        <Button isLinkButton={true}
-                onClickTabButton={undefined}
-                isActiveTab={undefined}>Clubs
-        </Button>
+        <Button isLinkButton={true}>Clubs</Button>
       </div>
     </div>
   )
