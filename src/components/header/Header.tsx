@@ -15,7 +15,10 @@ const Header = () => {
             <p>football club information app</p>
           </div>
         </div>
-        <Button isLinkButton={true} isTabButton={false}>Clubs</Button>
+        <Button isLinkButton={true}
+                onClickTabButton={undefined}
+                isActiveTab={undefined}>Clubs
+        </Button>
       </div>
     </div>
   )

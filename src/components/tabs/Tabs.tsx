@@ -7,19 +7,14 @@ const tabsTitles = ['All clubs', 'Russian', 'English', 'Italian', 'French', 'Ger
 const Tabs = () => {
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const onClickActiveIndex = (index) => {
-    setActiveIndex(index);
-  }
-
   return (
     <div className='tabs'>
       <ul>
         {tabsTitles.map((tabTitle, i) => (
           <li key={tabTitle}>
             <Button isTabButton={true}
-                    isLinkButton={false}
-                    onClickTabButton={() => onClickActiveIndex(i)}
-                    activeTabClassName={activeIndex === i}>{tabTitle}
+                    onClickTabButton={() => setActiveIndex(i)}
+                    isActiveTab={activeIndex === i}>{tabTitle}
             </Button>
           </li>
         ))}

@@ -1,5 +1,6 @@
 import Header from "../header/Header.tsx";
 import Tabs from "../tabs/Tabs.tsx";
+import Sort from "../sort/Sort.tsx";
 import './app.scss';
 
 const App = () => {
@@ -9,7 +10,10 @@ const App = () => {
       <Header/>
       <div className='content'>
         <div className='container'>
-          <Tabs/>
+          <div className='content__sorting'>
+            <Tabs/>
+            <Sort/>
+          </div>
         </div>
       </div>
     </div>

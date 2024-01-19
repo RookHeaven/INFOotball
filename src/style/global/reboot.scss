@@ -17,6 +17,12 @@ body {
 
 .content {
   padding: 40px 0;
+
+  &__sorting {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 }
 
 .visually-hidden {
