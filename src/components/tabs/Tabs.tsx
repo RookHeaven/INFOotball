@@ -1,11 +1,18 @@
 import Button from "../button/Button.tsx";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 import './tabs.scss';
 
-const tabsTitles = ['All clubs', 'Russian', 'English', 'Italian', 'French', 'German'];
+const tabsTitles = ['All clubs', 'Russian', 'Italian', 'French', 'German', 'Spain', 'English'];
 
 const Tabs = () => {
   const [activeIndex, setActiveIndex] = useState(0);
+
+  // useEffect(() => {
+  //   fetch('https://api.football-data.org/v4/competitions/PL/teams', {mode: "no-cors"})
+  //     .then((res) => {
+  //       console.log(res)
+  //     })
+  // }, [])
 
   return (
     <div className='tabs'>

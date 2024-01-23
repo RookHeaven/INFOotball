@@ -37,10 +37,25 @@
     margin-right: 14px;
   }
 
+  &__icon {
+    margin-right: 8px;
+  }
+
   &--favorites {
     align-items: center;
     background-color: $jade;
     color: $white;
+  }
+
+  &--card {
+    margin-bottom: 10px;
+    background-color: transparent;
+    border: 1px solid $jade;
+
+    @include hover-focus {
+      background-color: darken($jade, 2%);
+      color: $white;
+    }
   }
 
   &--tab {

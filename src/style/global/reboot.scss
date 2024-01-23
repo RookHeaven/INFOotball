@@ -11,7 +11,7 @@ body {
   margin: 0 auto;
   font-family: $ff-montserrat;
   font-size: 16px;
-  background: url('../assets/images/green-plastic-grass-textured-backdrop.jpg') center / cover no-repeat;
+  background: url('../assets/images/green-plastic-grass-textured-backdrop.jpg') center / cover repeat;
   padding: 2rem;
 }
 
@@ -27,10 +27,6 @@ body {
   &__title {
     font-size: 28px;
     font-weight: 600;
-  }
-
-  &__clubs {
-    grid-template-columns: repeat(4, 1fr);
   }
 }
 
