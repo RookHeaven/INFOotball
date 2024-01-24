@@ -1,7 +1,7 @@
-import useHttp from '../hooks/http.hook.tsx'
+import useHttp from '../hooks/http.hook.tsx';
 
 const FootballData = () => {
-  const {request} = useHttp();
+  const {loading, request} = useHttp();
 
   const _apiBase = 'https://api.npoint.io/';
   const _apiKey = 'a11d5364beb387fc9602';
@@ -10,7 +10,6 @@ const FootballData = () => {
     const res = await request(
       `${_apiBase}${_apiKey}`
     )
-    console.log(res)
     return Object.values(res).flat().map(_transformClubs);
   }
 
@@ -30,7 +29,8 @@ const FootballData = () => {
   }
 
   return {
-    getAllClubs
+    getAllClubs,
+    loading
   }
 }
 

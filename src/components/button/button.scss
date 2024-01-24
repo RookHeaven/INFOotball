@@ -53,8 +53,12 @@
     border: 1px solid $jade;
 
     @include hover-focus {
-      background-color: darken($jade, 2%);
+      background-color: $jade;
       color: $white;
+    }
+
+    @include active {
+      background-color: darken($jade, 12%);
     }
   }
 
@@ -66,12 +70,12 @@
     color: inherit;
 
     @include hover-focus {
-      background-color: darken($jade, 2%);
+      background-color: darken($jade, 8%);
       color: $white;
     }
 
     @include active {
-      background-color: darken($jade, 5%);
+      background-color: darken($jade, 12%);
     }
 
     &.active {

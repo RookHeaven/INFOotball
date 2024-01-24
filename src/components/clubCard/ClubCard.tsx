@@ -1,12 +1,13 @@
-import './clubCard.scss';
 import Button from "../button/Button.tsx";
 import FootballData from "../../services/FootballData.tsx";
+import Skeleton from "../skeleton/Skeleton.tsx";
 import {useState, useEffect} from "react";
+import './clubCard.scss';
 
 const ClubCard = () => {
   const [clubsList, setClubsList] = useState([]);
 
-  const {getAllClubs} = FootballData();
+  const {getAllClubs, loading} = FootballData();
 
   useEffect(() => {
     onRequest();
@@ -39,11 +40,27 @@ const ClubCard = () => {
     )
   }
 
-  const items = renderItems(clubsList);
+  function renderSkeleton (arr) {
+    const items = arr.map((_, index) => {
+      return (
+        <Skeleton className='skeleton' key={index}/>
+      )
+    })
+
+    return (
+      <ul className="club-list">
+        {items}
+      </ul>
+    )
+  }
+
+  const items = !loading && renderItems(clubsList);
+  const skeleton = loading && renderSkeleton([...new Array(18)]);
 
 
   return (
     <>
+      {skeleton}
       {items}
     </>
   )
