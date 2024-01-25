@@ -15,7 +15,7 @@
   transition: all $trans-default;
 
   &:disabled,
-  &--disabled {
+  &__disabled {
     opacity: 0.5;
     pointer-events: none;
   }
@@ -41,13 +41,13 @@
     margin-right: 8px;
   }
 
-  &--favorites {
+  &__favorites {
     align-items: center;
     background-color: $jade;
     color: $white;
   }
 
-  &--card {
+  &__card {
     margin-bottom: 10px;
     background-color: transparent;
     border: 1px solid $jade;
@@ -62,7 +62,7 @@
     }
   }
 
-  &--tab {
+  &__tab {
     padding: 14px 30px;
     font-weight: 700;
     background-color: transparent;

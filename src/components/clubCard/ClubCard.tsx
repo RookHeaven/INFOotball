@@ -1,8 +1,10 @@
+import {useState, useEffect} from "react";
+
 import Button from "../button/Button.tsx";
 import FootballData from "../../services/FootballData.tsx";
 import Skeleton from "../skeleton/Skeleton.tsx";
-import {useState, useEffect} from "react";
-import './clubCard.scss';
+
+import styles from './clubCard.module.scss';
 
 const ClubCard = () => {
   const [clubsList, setClubsList] = useState([]);
@@ -25,16 +27,16 @@ const ClubCard = () => {
   function renderItems (arr) {
     const items = arr.map(item => {
       return (
-        <li className="club-list__item" key={item.id}>
-          <img className='club-list__image' src={item.imgSrc} alt="Football club team badge"/>
-          <h3 className='club-list__title'>{item.title}</h3>
+        <li className={styles.clubs__item} key={item.id}>
+          <img className={styles.clubs__image} width='200' height='200' src={item.imgSrc} alt="Football club team badge"/>
+          <h3 className={styles.clubs__title}>{item.title}</h3>
           <Button isCardButton={true}>Add to favorites</Button>
         </li>
       )
     })
 
     return (
-      <ul className="club-list">
+      <ul className={styles.clubs}>
         {items}
       </ul>
     )
@@ -48,7 +50,7 @@ const ClubCard = () => {
     })
 
     return (
-      <ul className="club-list">
+      <ul className={styles.clubs}>
         {items}
       </ul>
     )

@@ -5,26 +5,30 @@
   border-bottom: 1px solid #f6f6f6;
   padding: 40px 0;
 
-  .container {
+  &__container {
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
 
   &__logo {
-    display: flex;
-
     a {
       display: flex;
       align-items: center;
-      margin-right: 15px;
+      text-decoration: none;
+      color: inherit;
+      //margin-right: 15px;
 
-      img {
-        @include hover-focus {
+      @include hover-focus {
+        img {
           @include rotate-animation;
           animation: rotate $rotateDuration infinite;
         }
       }
+    }
+
+    img {
+      margin-right: 15px;
     }
 
     h1 {
