@@ -6,14 +6,26 @@ import Skeleton from "../skeleton/Skeleton.tsx";
 
 import styles from './clubCard.module.scss';
 
-const ClubCard = () => {
+const ClubCard = ({country}) => {
   const [clubsList, setClubsList] = useState([]);
+  const [filteredList, setFilteredList] = useState([]);
 
   const {getAllClubs, loading} = FootballData();
+
+  console.log(clubsList)
 
   useEffect(() => {
     onRequest();
   }, [])
+
+  useEffect(() => {
+    setFilteredList(filteredClubs(clubsList))
+  }, [country, loading])
+
+  const filteredClubs = (clubsList) => {
+    if (country === 'All clubs') return clubsList
+    return clubsList.filter(club => club.country === country)
+  }
 
   const onRequest = () => {
     getAllClubs()
@@ -21,7 +33,7 @@ const ClubCard = () => {
   }
 
   const onClubsListLoaded = (newClubsList) => {
-    setClubsList([...clubsList, ...newClubsList]);
+    setClubsList(newClubsList);
   }
 
   function renderItems (arr) {
@@ -56,7 +68,7 @@ const ClubCard = () => {
     )
   }
 
-  const items = !loading && renderItems(clubsList);
+  const items = !loading && renderItems(filteredList);
   const skeleton = loading && renderSkeleton([...new Array(18)]);
 
 

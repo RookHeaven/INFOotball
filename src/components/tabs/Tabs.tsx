@@ -4,19 +4,17 @@ import {useState} from "react";
 
 import styles from './tabs.module.scss';
 
-const tabsTitles = ['All clubs', 'Russian', 'Italian', 'French', 'German', 'Spain', 'English'];
+const tabsTitles = ['All clubs', 'France', 'Germany', 'England', 'Italy', 'Russia', 'Spain'];
 
-const Tabs = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
+const Tabs = ({value, onClickTab}) => {
   return (
     <div className={styles.tabs}>
       <ul>
-        {tabsTitles.map((tabTitle, i) => (
+        {tabsTitles.map((tabTitle) => (
           <li key={tabTitle}>
             <Button isTabButton={true}
-                    onClickTabButton={() => setActiveIndex(i)}
-                    isActiveTab={activeIndex === i}>{tabTitle}
+                    onClickTabButton={() => onClickTab(tabTitle)}
+                    isActiveTab={value === tabTitle}>{tabTitle}
             </Button>
           </li>
         ))}

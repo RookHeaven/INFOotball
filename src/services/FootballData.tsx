@@ -10,7 +10,7 @@ const FootballData = () => {
     const res = await request(
       `${_apiBase}${_apiKey}`
     )
-    return Object.values(res).flat().map(_transformClubs);
+    return res.map(_transformClubs);
   }
 
   const _transformClubs = (clubs) => {
