@@ -47,6 +47,21 @@
     color: $white;
   }
 
+  &__back {
+    background-color: transparent;
+    border: 1px solid $jade;
+    color: inherit;
+
+    @include hover-focus {
+      background-color: $jade;
+      color: $white;
+    }
+
+    @include active {
+      background-color: darken($jade, 12%);
+    }
+  }
+
   &__card {
     margin-bottom: 10px;
     background-color: transparent;

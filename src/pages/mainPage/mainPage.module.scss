@@ -1,0 +1,14 @@
+.content {
+  padding: 40px 0;
+
+  &__sorting {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title {
+    font-size: 28px;
+    font-weight: 600;
+  }
+}

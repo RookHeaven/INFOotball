@@ -1,0 +1,67 @@
+@import '../../style/variables';
+@import '../../style/mixins';
+
+.favorite {
+  padding-top: 40px;
+
+  &__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__title {
+    display: flex;
+    align-items: center;
+    font-size: 28px;
+    font-weight: 600;
+    margin: 0;
+
+    svg {
+      margin-right: 10px;
+      width: 35px;
+      height: 35px;
+      color: $jade;
+    }
+  }
+
+  &__clear {
+    display: flex;
+    align-items: center;
+    color: $suva-gray;
+    cursor: pointer;
+
+    span {
+      font-size: 18px;
+    }
+
+    svg {
+      margin-right: 7px;
+      width: 22px;
+      height: 22px;
+    }
+
+    @include hover-focus {
+      color: $jade;
+    }
+
+    @include active {
+      color: darken($jade, 12%);
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+
+    span {
+      font-size: 22px;
+    }
+
+    b {
+      margin-left: 10px;
+    }
+  }
+}
