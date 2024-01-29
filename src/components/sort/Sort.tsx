@@ -1,17 +1,18 @@
 import Select from "react-select";
-import {useState} from "react";
 
 import './sort.scss';
 
 
 const options = [
-  { value: 'alphabetical', label: 'alphabetical' },
-  { value: 'formed year', label: 'formed year' },
-  { value: 'stadium capacity', label: 'stadium capacity' }
+  { value: 'alphabeticalAsc', label: 'alphabetical ↑' },
+  { value: 'alphabeticalDesc', label: 'alphabetical ↓' },
+  { value: 'yearAsc', label: 'formed year ↑' },
+  { value: 'yearDesc', label: 'formed year ↓' },
+  { value: 'capacityAsc', label: 'stadium capacity ↑' },
+  { value: 'capacityDesc', label: 'stadium capacity ↓' }
 ]
 
-const Sort = () => {
-  const [currentOption, setCurrentOption] = useState('');
+const Sort = ({currentOption, setCurrentOption}) => {
 
   const getValue = () => {
     return currentOption ? options.find(option => option.value === currentOption) : ''

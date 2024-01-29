@@ -6,23 +6,47 @@ import Skeleton from "../skeleton/Skeleton.tsx";
 
 import styles from './clubCard.module.scss';
 
-const ClubCard = ({country}) => {
+const ClubCard = ({country, option}) => {
   const [clubsList, setClubsList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
+  const [isFiltered, setIsFiltered] = useState(false);
 
   const {getAllClubs, loading} = FootballData();
 
-  console.log(clubsList)
+  useEffect(() => {
+    setFilteredList(getFilteredClubs())
+    setIsFiltered(true)
+  }, [country, loading])
+
+  useEffect(() => {
+    setFilteredList(getSortedItems())
+    setIsFiltered(false)
+  }, [option, isFiltered])
 
   useEffect(() => {
     onRequest();
   }, [])
 
-  useEffect(() => {
-    setFilteredList(filteredClubs(clubsList))
-  }, [country, loading])
+  const getSortedItems = () => {
+    switch (option) {
+      case 'alphabeticalAsc':
+        return filteredList?.slice().sort((a, b) => a.title.localeCompare(b.title))
+      case 'alphabeticalDesc':
+        return filteredList?.slice().sort((a, b) => b.title.localeCompare(a.title))
+      case 'yearDesc':
+        return filteredList?.slice().sort((a, b) => a.formedYear - b.formedYear)
+      case 'yearAsc':
+        return filteredList?.slice().sort((a, b) => b.formedYear - a.formedYear)
+      case 'capacityDesc':
+        return filteredList?.slice().sort((a, b) => a.stadiumCapacity - b.stadiumCapacity)
+      case 'capacityAsc':
+        return filteredList?.slice().sort((a, b) => b.stadiumCapacity - a.stadiumCapacity)
+      default:
+        return filteredList;
+    }
+  }
 
-  const filteredClubs = (clubsList) => {
+  const getFilteredClubs = () => {
     if (country === 'All clubs') return clubsList
     return clubsList.filter(club => club.country === country)
   }
@@ -42,6 +66,8 @@ const ClubCard = ({country}) => {
         <li className={styles.clubs__item} key={item.id}>
           <img className={styles.clubs__image} width='200' height='200' src={item.imgSrc} alt="Football club team badge"/>
           <h3 className={styles.clubs__title}>{item.title}</h3>
+          <p>Formed year: <span>{item.formedYear}</span></p>
+          <p>Stadium capacity: <span>{item.stadiumCapacity}</span></p>
           <Button isCardButton={true}>Add to favorites</Button>
         </li>
       )
