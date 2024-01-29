@@ -9,46 +9,47 @@ import styles from './clubCard.module.scss';
 const ClubCard = ({country, option}) => {
   const [clubsList, setClubsList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
-  const [isFiltered, setIsFiltered] = useState(false);
 
   const {getAllClubs, loading} = FootballData();
 
   useEffect(() => {
     setFilteredList(getFilteredClubs())
-    setIsFiltered(true)
-  }, [country, loading])
-
-  useEffect(() => {
-    setFilteredList(getSortedItems())
-    setIsFiltered(false)
-  }, [option, isFiltered])
+    // setIsFiltered(true)
+  }, [country, loading, option])
 
   useEffect(() => {
     onRequest();
   }, [])
 
-  const getSortedItems = () => {
+  const getSortingFunction = () => {
     switch (option) {
       case 'alphabeticalAsc':
-        return filteredList?.slice().sort((a, b) => a.title.localeCompare(b.title))
+        return (a, b) => a.title.localeCompare(b.title)
       case 'alphabeticalDesc':
-        return filteredList?.slice().sort((a, b) => b.title.localeCompare(a.title))
+        return (a, b) => b.title.localeCompare(a.title)
       case 'yearDesc':
-        return filteredList?.slice().sort((a, b) => a.formedYear - b.formedYear)
+        return (a, b) => a.formedYear - b.formedYear
       case 'yearAsc':
-        return filteredList?.slice().sort((a, b) => b.formedYear - a.formedYear)
+        return (a, b) => b.formedYear - a.formedYear
       case 'capacityDesc':
-        return filteredList?.slice().sort((a, b) => a.stadiumCapacity - b.stadiumCapacity)
+        return (a, b) => a.stadiumCapacity - b.stadiumCapacity
       case 'capacityAsc':
-        return filteredList?.slice().sort((a, b) => b.stadiumCapacity - a.stadiumCapacity)
+        return (a, b) => b.stadiumCapacity - a.stadiumCapacity
       default:
-        return filteredList;
+        return (a, b) => a.title.localeCompare(b.title);
     }
   }
 
   const getFilteredClubs = () => {
+    const sortingFunction = getSortingFunction()
+
     if (country === 'All clubs') return clubsList
-    return clubsList.filter(club => club.country === country)
+      .slice()
+      .sort(sortingFunction)
+
+    return clubsList
+      .filter(club => club.country === country)
+      .sort(sortingFunction)
   }
 
   const onRequest = () => {
