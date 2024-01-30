@@ -1,4 +1,5 @@
-import {useState, useEffect} from "react";
+import {useState, useEffect, useContext} from "react";
+import searchContext from "../../context/context.tsx";
 
 import Button from "../button/Button.tsx";
 import FootballData from "../../services/FootballData.tsx";
@@ -7,6 +8,7 @@ import Skeleton from "../skeleton/Skeleton.tsx";
 import styles from './clubCard.module.scss';
 
 const ClubCard = ({country, option}) => {
+  const {searchValue} = useContext(searchContext);
   const [clubsList, setClubsList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
 
@@ -28,13 +30,13 @@ const ClubCard = ({country, option}) => {
       case 'alphabeticalDesc':
         return (a, b) => b.title.localeCompare(a.title)
       case 'yearDesc':
-        return (a, b) => a.formedYear - b.formedYear
-      case 'yearAsc':
         return (a, b) => b.formedYear - a.formedYear
+      case 'yearAsc':
+        return (a, b) => a.formedYear - b.formedYear
       case 'capacityDesc':
-        return (a, b) => a.stadiumCapacity - b.stadiumCapacity
-      case 'capacityAsc':
         return (a, b) => b.stadiumCapacity - a.stadiumCapacity
+      case 'capacityAsc':
+        return (a, b) => a.stadiumCapacity - b.stadiumCapacity
       default:
         return (a, b) => a.title.localeCompare(b.title);
     }
@@ -62,7 +64,10 @@ const ClubCard = ({country, option}) => {
   }
 
   function renderItems (arr) {
-    const items = arr.map(item => {
+    const items = arr.filter(item => {
+      return item.title.toLowerCase().includes(searchValue.toLowerCase());
+
+    }).map(item => {
       return (
         <li className={styles.clubs__item} key={item.id}>
           <img className={styles.clubs__image} width='200' height='200' src={item.imgSrc} alt="Football club team badge"/>

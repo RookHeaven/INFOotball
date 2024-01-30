@@ -1,0 +1,37 @@
+@import '../../style/variables';
+@import '../../style/mixins';
+
+.search {
+  position: relative;
+
+  &__input {
+    width: 350px;
+    padding: 13px 13px 13px 40px;
+    border: 1px solid $jade;
+    border-radius: 4px;
+    transition: all $trans-default;
+  }
+
+  &__icon {
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    opacity: 0.3;
+  }
+
+  &__closeIcon {
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    opacity: 0.3;
+    cursor: pointer;
+
+    @include hover-focus {
+      color: darken($jade, 12%);
+    }
+  }
+}

@@ -1,7 +1,5 @@
 import classNames from 'classnames';
 
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
 import Heart from '../../assets/icons/heart.svg?react';
 import Arrow from '../../assets/icons/arrow-back.svg?react';
 
@@ -13,7 +11,7 @@ const Button = ({isLinkButton = false, isTabButton = false, isCardButton = false
   const linkButton = <Link
     to='/clubs'
     className={classNames(styles.button, styles.button__favorites)}>
-      <Heart className={classNames(styles.button__icon)} style={{color: 'white'}}/>
+      <Heart className={styles.button__icon} style={{color: 'white'}}/>
       <span>3</span>
       <div className={styles.button__delimiter}></div>
       {children}
@@ -21,7 +19,7 @@ const Button = ({isLinkButton = false, isTabButton = false, isCardButton = false
 
   const cardButton = <button
     className={classNames(styles.button, styles.button__card)}>
-    <Heart className={classNames(styles.button__icon)}/>
+    <Heart className={styles.button__icon}/>
     {children}
   </button>
 
@@ -35,7 +33,7 @@ const Button = ({isLinkButton = false, isTabButton = false, isCardButton = false
   const backButton = <Link
     to='/'
     className={classNames(styles.button, styles.button__back)}>
-    <Arrow className={classNames(styles.button__icon)}/>
+    <Arrow className={styles.button__icon}/>
     {children}
   </Link>
 

@@ -4,8 +4,8 @@ import './sort.scss';
 
 
 const options = [
-  { value: 'alphabeticalAsc', label: 'alphabetical ↑' },
-  { value: 'alphabeticalDesc', label: 'alphabetical ↓' },
+  { value: 'alphabeticalAsc', label: 'alphabetical (A-Z)' },
+  { value: 'alphabeticalDesc', label: 'alphabetical (Z-A)' },
   { value: 'yearAsc', label: 'formed year ↑' },
   { value: 'yearDesc', label: 'formed year ↓' },
   { value: 'capacityAsc', label: 'stadium capacity ↑' },

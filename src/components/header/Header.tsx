@@ -1,11 +1,12 @@
+import {Link} from "react-router-dom";
 import Button from "../button/Button.tsx";
+import Search from "../search/Search.tsx";
 
 import classNames from 'classnames';
 
 import logo from '../../assets/svg/logo.svg';
 
 import styles from './header.module.scss';
-import {Link} from "react-router-dom";
 
 const Header = () => {
   return (
@@ -20,6 +21,7 @@ const Header = () => {
             </div>
           </Link>
         </div>
+        <Search/>
         <Button isLinkButton={true}>Clubs</Button>
       </div>
     </div>

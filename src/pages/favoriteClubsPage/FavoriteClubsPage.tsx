@@ -3,9 +3,9 @@ import Button from "../../components/button/Button.tsx";
 import Heart from '../../assets/icons/heart.svg?react';
 import Trash from '../../assets/icons/trash.svg?react';
 
-import styles from './favoriteClubs.module.scss';
+import styles from './favoriteClubsPage.module.scss';
 
-const FavoriteClubs = () => {
+const FavoriteClubsPage = () => {
   return (
     <div className={styles.favorite}>
       <div className='container'>
@@ -27,4 +27,4 @@ const FavoriteClubs = () => {
   )
 }
 
-export default FavoriteClubs;
+export default FavoriteClubsPage;

@@ -1,10 +1,8 @@
 import Button from "../button/Button.tsx";
 
-import {useState} from "react";
-
 import styles from './tabs.module.scss';
 
-const tabsTitles = ['All clubs', 'France', 'Germany', 'England', 'Italy', 'Russia', 'Spain'];
+const tabsTitles = ['All clubs', 'Russia', 'England', 'France', 'Germany', 'Italy', 'Spain'];
 
 const Tabs = ({value, onClickTab}) => {
   return (
