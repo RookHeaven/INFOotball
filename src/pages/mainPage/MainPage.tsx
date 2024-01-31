@@ -13,7 +13,6 @@ const MainPage = () => {
           <Tabs/>
           <Sort/>
         </div>
-        <h2 className={styles.content__title}>All clubs</h2>
         <ClubCard/>
       </div>
     </div>
