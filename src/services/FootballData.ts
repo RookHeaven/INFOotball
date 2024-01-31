@@ -1,4 +1,4 @@
-import useHttp from '../hooks/http.hook.tsx';
+import useHttp from '../hooks/http.hook.ts';
 
 const FootballData = () => {
   const {loading, request} = useHttp();

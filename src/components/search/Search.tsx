@@ -1,5 +1,5 @@
 import {useContext} from "react";
-import searchContext from "../../context/context.tsx";
+import searchContext from "../../context/context.ts";
 
 import styles from './search.module.scss';
 

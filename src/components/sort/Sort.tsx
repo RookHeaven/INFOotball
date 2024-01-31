@@ -1,7 +1,9 @@
+import {useDispatch, useSelector} from "react-redux";
+import {setCurrentOption} from "../../slices/filterSlice.ts";
+
 import Select from "react-select";
 
 import './sort.scss';
-
 
 const options = [
   { value: 'alphabeticalAsc', label: 'alphabetical (A-Z)' },
@@ -12,15 +14,17 @@ const options = [
   { value: 'capacityDesc', label: 'stadium capacity ↓' }
 ]
 
-const Sort = ({currentOption, setCurrentOption}) => {
+const Sort = () => {
+  const {currentOption} = useSelector(state => state.filters);
+  const dispatch = useDispatch();
+
+  const onClickOption = (option) => {
+    dispatch(setCurrentOption(option.value));
+  }
 
   const getValue = () => {
     return currentOption ? options.find(option => option.value === currentOption) : ''
   };
-
-  const onChange = (currentOption) => {
-    setCurrentOption(currentOption.value)
-  }
 
   return (
     <div className='sorting'>
@@ -30,7 +34,7 @@ const Sort = ({currentOption, setCurrentOption}) => {
                 defaultValue={currentOption}
                 options={options}
                 value={getValue()}
-                onChange={onChange}
+                onChange={onClickOption}
                 placeholder='select an option'/>
       </div>
     </div>

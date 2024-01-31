@@ -1,13 +1,16 @@
 import {useState, useEffect, useContext} from "react";
-import searchContext from "../../context/context.tsx";
+import searchContext from "../../context/context.ts";
+import {useSelector} from "react-redux";
 
 import Button from "../button/Button.tsx";
-import FootballData from "../../services/FootballData.tsx";
+import FootballData from "../../services/FootballData.ts";
 import Skeleton from "../skeleton/Skeleton.tsx";
 
 import styles from './clubCard.module.scss';
 
-const ClubCard = ({country, option}) => {
+
+const ClubCard = () => {
+  const {activeTab, currentOption} = useSelector(state => state.filters);
   const {searchValue} = useContext(searchContext);
   const [clubsList, setClubsList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
@@ -16,15 +19,14 @@ const ClubCard = ({country, option}) => {
 
   useEffect(() => {
     setFilteredList(getFilteredClubs())
-    // setIsFiltered(true)
-  }, [country, loading, option])
+  }, [activeTab, loading, currentOption])
 
   useEffect(() => {
     onRequest();
   }, [])
 
   const getSortingFunction = () => {
-    switch (option) {
+    switch (currentOption) {
       case 'alphabeticalAsc':
         return (a, b) => a.title.localeCompare(b.title)
       case 'alphabeticalDesc':
@@ -45,12 +47,12 @@ const ClubCard = ({country, option}) => {
   const getFilteredClubs = () => {
     const sortingFunction = getSortingFunction()
 
-    if (country === 'All clubs') return clubsList
+    if (activeTab === 'All clubs') return clubsList
       .slice()
       .sort(sortingFunction)
 
     return clubsList
-      .filter(club => club.country === country)
+      .filter(club => club.country === activeTab)
       .sort(sortingFunction)
   }
 

@@ -1,6 +1,6 @@
 import {useState} from "react";
 import Header from "../header/Header.tsx";
-import searchContext from "../../context/context.tsx";
+import searchContext from "../../context/context.ts";
 import {Outlet} from "react-router-dom";
 
 import style from './app.module.scss';
