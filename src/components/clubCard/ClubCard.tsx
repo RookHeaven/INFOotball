@@ -108,6 +108,7 @@ const ClubCard = () => {
 
   return (
     <>
+      <h2 className={styles.title}>{activeTab}</h2>
       {skeleton}
       {items}
     </>
