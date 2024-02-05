@@ -1,5 +1,6 @@
-import {useContext, useRef} from "react";
-import searchContext from "../../context/context.ts";
+import {useRef} from "react";
+import {useDispatch, useSelector} from "react-redux";
+import {setSearchValue} from "../../slices/filterSlice.ts";
 
 import styles from './search.module.scss';
 
@@ -7,11 +8,16 @@ import SearchIcon from '../../assets/icons/search.svg?react';
 import Close from '../../assets/icons/close.svg?react';
 
 const Search = () => {
+  const {searchValue} = useSelector(state => state.filters);
+  const dispatch = useDispatch();
   const inputRef = useRef();
-  const {searchValue, setSearchValue} = useContext(searchContext);
+
+  const onChangeInput = (event) => {
+    dispatch(setSearchValue(event.target.value))
+  }
 
   const onClickClose = () => {
-    setSearchValue('');
+    dispatch(setSearchValue(''));
     inputRef.current.focus();
   }
 
@@ -20,7 +26,7 @@ const Search = () => {
       <SearchIcon className={styles.search__icon}/>
       <input ref={inputRef}
              value={searchValue}
-             onChange={(event) => setSearchValue(event.target.value)}
+             onChange={onChangeInput}
              className={styles.search__input}
              placeholder='Search club...'/>
       {searchValue && <Close onClick={onClickClose}

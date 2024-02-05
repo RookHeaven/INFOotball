@@ -1,5 +1,4 @@
-import {useState, useEffect, useContext} from "react";
-import searchContext from "../../context/context.ts";
+import {useState, useEffect} from "react";
 import {useSelector} from "react-redux";
 
 import Button from "../button/Button.tsx";
@@ -10,8 +9,7 @@ import styles from './clubCard.module.scss';
 
 
 const ClubCard = () => {
-  const {activeTab, currentOption} = useSelector(state => state.filters);
-  const {searchValue} = useContext(searchContext);
+  const {activeTab, currentOption, searchValue} = useSelector(state => state.filters);
   const [clubsList, setClubsList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
 

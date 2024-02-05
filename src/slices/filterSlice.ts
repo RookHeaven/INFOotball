@@ -2,7 +2,8 @@ import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
   activeTab: 'All clubs',
-  currentOption: 'alphabeticalAsc'
+  currentOption: 'alphabeticalAsc',
+  searchValue: ''
 }
 
 export const filterSlice = createSlice({
@@ -15,9 +16,12 @@ export const filterSlice = createSlice({
     setCurrentOption: (state, action) => {
       state.currentOption = action.payload;
     },
+    setSearchValue: (state, action) => {
+      state.searchValue = action.payload;
+    }
   },
 })
 
-export const { setActiveTab, setCurrentOption } = filterSlice.actions
+export const { setActiveTab, setCurrentOption, setSearchValue } = filterSlice.actions
 
 export default filterSlice.reducer
