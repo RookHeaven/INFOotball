@@ -4,12 +4,24 @@ import classNames from 'classnames';
 
 import Heart from '../../assets/icons/heart.svg?react';
 import Arrow from '../../assets/icons/arrow-back.svg?react';
+import Trash from '../../assets/icons/trash.svg?react';
 
 import styles from './button.module.scss';
 import {Link} from "react-router-dom";
 
 
-const Button = ({isLinkButton = false, isTabButton = false, isCardButton = false, onClickTabButton = undefined, isActiveTab = false, isBackButton = false, onClickCardButton = undefined, children}) => {
+const Button = (props) => {
+  const {
+    isLinkButton = false,
+    isTabButton = false,
+    isCardButton = false,
+    isRemoveCardButton = false,
+    onClickTabButton = undefined,
+    isActiveTab = false,
+    isBackButton = false,
+    onClickCardButton = undefined,
+    children
+  } = props;
   const {clubs} = useSelector(state => state.favorites);
 
   const linkButton = <Link
@@ -24,7 +36,7 @@ const Button = ({isLinkButton = false, isTabButton = false, isCardButton = false
   const cardButton = <button
     onClick={onClickCardButton}
     className={classNames(styles.button, styles.button__card)}>
-    <Heart className={styles.button__icon}/>
+    {isRemoveCardButton ? <Trash className={styles.button__iconTrash}/> : <Heart className={styles.button__icon}/>}
     {children}
   </button>
 
