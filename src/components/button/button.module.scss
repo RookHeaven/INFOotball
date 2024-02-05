@@ -33,16 +33,11 @@
     width: 1px;
     height: 25px;
     background-color: $white-25;
-    margin-left: 14px;
-    margin-right: 14px;
-  }
-
-  &__icon {
-    margin-right: 8px;
   }
 
   &__favorites {
-    align-items: center;
+    justify-content: space-between;
+    width: 160px;
     background-color: $jade;
     color: $white;
   }
@@ -63,6 +58,7 @@
   }
 
   &__card {
+    column-gap: 8px;
     margin-bottom: 10px;
     background-color: transparent;
     border: 1px solid $jade;

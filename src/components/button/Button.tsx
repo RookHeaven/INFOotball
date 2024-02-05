@@ -1,3 +1,5 @@
+import {useSelector} from "react-redux";
+
 import classNames from 'classnames';
 
 import Heart from '../../assets/icons/heart.svg?react';
@@ -7,17 +9,20 @@ import styles from './button.module.scss';
 import {Link} from "react-router-dom";
 
 
-const Button = ({isLinkButton = false, isTabButton = false, isCardButton = false, onClickTabButton = undefined, isActiveTab = false, isBackButton = false, children}) => {
+const Button = ({isLinkButton = false, isTabButton = false, isCardButton = false, onClickTabButton = undefined, isActiveTab = false, isBackButton = false, onClickCardButton = undefined, children}) => {
+  const {clubs} = useSelector(state => state.favorites);
+
   const linkButton = <Link
     to='/clubs'
     className={classNames(styles.button, styles.button__favorites)}>
       <Heart className={styles.button__icon} style={{color: 'white'}}/>
-      <span>3</span>
+      <span>{clubs.length}</span>
       <div className={styles.button__delimiter}></div>
       {children}
     </Link>
 
   const cardButton = <button
+    onClick={onClickCardButton}
     className={classNames(styles.button, styles.button__card)}>
     <Heart className={styles.button__icon}/>
     {children}

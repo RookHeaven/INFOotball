@@ -1,19 +1,25 @@
 import {useState, useEffect} from "react";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
+import {addToFavorite} from "../../slices/favoriteSlice.ts";
 
 import Button from "../button/Button.tsx";
 import FootballData from "../../services/FootballData.ts";
 import Skeleton from "../skeleton/Skeleton.tsx";
 
-import styles from './clubCard.module.scss';
+import styles from './clubsList.module.scss';
 
 
-const ClubCard = () => {
+const ClubsList = () => {
   const {activeTab, currentOption, searchValue} = useSelector(state => state.filters);
+  const {clubs} = useSelector(state => state.favorites);
+  const dispatch = useDispatch();
+
   const [clubsList, setClubsList] = useState([]);
   const [filteredList, setFilteredList] = useState([]);
 
   const {getAllClubs, loading} = FootballData();
+
+  // const isClubInFavorites = clubs.some(club => club.id === )
 
   useEffect(() => {
     setFilteredList(getFilteredClubs())
@@ -63,21 +69,23 @@ const ClubCard = () => {
     setClubsList(newClubsList);
   }
 
-  function renderItems (arr) {
-    const items = arr.filter(item => {
-      return item.title.toLowerCase().includes(searchValue.toLowerCase());
+  const onClubAdded = (item) => {
+    dispatch(addToFavorite(item))
+  }
 
-    }).map(item => {
-      return (
+  function renderItems (arr) {
+    const items = arr
+      .filter(item => item.title.toLowerCase().includes(searchValue.toLowerCase()))
+      .map(item => (
         <li className={styles.clubs__item} key={item.id}>
           <img className={styles.clubs__image} width='200' height='200' src={item.imgSrc} alt="Football club team badge"/>
           <h3 className={styles.clubs__title}>{item.title}</h3>
           <p>Formed year: <span>{item.formedYear}</span></p>
           <p>Stadium capacity: <span>{item.stadiumCapacity}</span></p>
-          <Button isCardButton={true}>Add to favorites</Button>
+          <Button isCardButton={true} onClickCardButton={() => onClubAdded(item)}>Add to favorites</Button>
         </li>
       )
-    })
+    )
 
     return (
       <ul className={styles.clubs}>
@@ -113,4 +121,4 @@ const ClubCard = () => {
   )
 }
 
-export default ClubCard;
+export default ClubsList;
