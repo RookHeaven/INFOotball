@@ -1,3 +1,6 @@
+import {useSelector} from "react-redux";
+
+import EmptyFavorites from "../../components/emptyFavorites/EmptyFavorites.tsx";
 import Button from "../../components/button/Button.tsx";
 
 import Heart from '../../assets/icons/heart.svg?react';
@@ -5,7 +8,16 @@ import Trash from '../../assets/icons/trash.svg?react';
 
 import styles from './favoriteClubsPage.module.scss';
 
+
 const FavoriteClubsPage = () => {
+  const {clubs} = useSelector(state => state.favorites);
+
+  if (clubs.length === 0) {
+    return (
+      <EmptyFavorites/>
+    )
+  }
+
   return (
     <div className={styles.favorite}>
       <div className='container'>
@@ -19,7 +31,7 @@ const FavoriteClubsPage = () => {
         </div>
         <ul className={styles.favorite__list}></ul>
         <div className={styles.favorite__bottom}>
-          <span>Total clubs:<b>3</b></span>
+          <span>Total clubs:<b>{clubs.length}</b></span>
           <Button isBackButton={true}>Back to Main Page</Button>
         </div>
       </div>

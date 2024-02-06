@@ -93,7 +93,7 @@ const ClubsList = () => {
 
   return (
     <>
-      <h2 className={styles.title}>{activeTab}</h2>
+      <h2 className={styles.clubs__title}>{activeTab}</h2>
       {skeleton}
       {items}
     </>

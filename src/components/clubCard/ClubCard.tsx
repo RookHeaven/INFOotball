@@ -1,7 +1,9 @@
-import styles from "../clubsList/clubsList.module.scss";
 import Button from "../button/Button.tsx";
+
 import {addToFavorite, removeFromFavorite} from "../../slices/favoriteSlice.ts";
 import {useDispatch, useSelector} from "react-redux";
+
+import styles from "../clubCard/clubCard.module.scss";
 
 const ClubCard = ({item}) => {
   const {clubs} = useSelector(state => state.favorites);
@@ -19,9 +21,9 @@ const ClubCard = ({item}) => {
   }
 
   return (
-    <li className={styles.clubs__item} key={item.id}>
-      <img className={styles.clubs__image} width='200' height='200' src={item.imgSrc} alt="Football club team badge"/>
-      <h3 className={styles.clubs__title}>{item.title}</h3>
+    <li className={styles.club} key={item.id}>
+      <img className={styles.club__image} width='200' height='200' src={item.imgSrc} alt="Football club team badge"/>
+      <h3 className={styles.club__title}>{item.title}</h3>
       <p>Formed year: <span>{item.formedYear}</span></p>
       <p>Stadium capacity: <span>{item.stadiumCapacity}</span></p>
       <Button

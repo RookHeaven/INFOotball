@@ -36,7 +36,10 @@ const Button = (props) => {
   const cardButton = <button
     onClick={onClickCardButton}
     className={classNames(styles.button, styles.button__card)}>
-    {isRemoveCardButton ? <Trash className={styles.button__iconTrash}/> : <Heart className={styles.button__icon}/>}
+    {isRemoveCardButton
+      ? <Trash className={styles.button__iconTrash}/>
+      : <Heart className={styles.button__icon}/>
+    }
     {children}
   </button>
 

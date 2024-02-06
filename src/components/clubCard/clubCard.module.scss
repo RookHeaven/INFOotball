@@ -1,0 +1,34 @@
+@import '../../style/variables';
+@import '../../style/mixins';
+
+
+.club {
+  display: flex;
+  padding: 10px;
+  flex-direction: column;
+  align-items: center;
+  list-style-type: none;
+  border: 1px solid $jade;
+  border-radius: 30px;
+
+  @include hover-focus {
+    box-shadow: inset 0 0 5px $jade;
+  }
+
+  &:has(.button--card:focus) {
+    box-shadow: inset 0 0 5px $jade;
+  }
+
+  &__title {
+    margin: 10px 0;
+  }
+
+  p {
+    margin: 0 0 10px;
+  }
+
+  span {
+    color: $jade;
+  }
+}
+
