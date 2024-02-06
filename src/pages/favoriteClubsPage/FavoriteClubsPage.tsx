@@ -1,11 +1,11 @@
-import {useSelector} from "react-redux";
-
 import EmptyFavorites from "../../components/emptyFavorites/EmptyFavorites.tsx";
 import FavoriteClub from "../../components/favoriteClub/FavoriteClub.tsx";
 import Button from "../../components/button/Button.tsx";
 
+import {useDispatch, useSelector} from "react-redux";
+import {clearAllFavorite} from "../../slices/favoriteSlice.ts";
+
 import Heart from '../../assets/icons/heart.svg?react';
-import Trash from '../../assets/icons/trash.svg?react';
 
 import styles from './favoriteClubsPage.module.scss';
 
@@ -13,6 +13,11 @@ import styles from './favoriteClubsPage.module.scss';
 
 const FavoriteClubsPage = () => {
   const {clubs} = useSelector(state => state.favorites);
+  const dispatch = useDispatch();
+
+  const onClearAllFavoriteClub = () => {
+    dispatch(clearAllFavorite())
+  }
 
   function renderItems (arr) {
     const items = arr.map(item => <FavoriteClub key={item.id} item={item}/>)
@@ -34,14 +39,16 @@ const FavoriteClubsPage = () => {
 
   return (
     <div className={styles.favorite}>
-      <div className='container'>
+      <div className={styles.favorite__container}>
         <div className={styles.favorite__top}>
           <h2 className={styles.favorite__title}>
-            <Heart/>Favorite clubs</h2>
-          <div className={styles.favorite__clear}>
-            <Trash/>
-            <span>Clear favorites</span>
-          </div>
+            <Heart/>
+            Favorite clubs
+          </h2>
+          <Button isClearAllCardButton={true}
+                  onClickClearAllCardButton={() => onClearAllFavoriteClub()}
+          >Clear favorites
+          </Button>
         </div>
         {items}
         <div className={styles.favorite__bottom}>

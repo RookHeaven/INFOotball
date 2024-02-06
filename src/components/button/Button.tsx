@@ -7,6 +7,8 @@ import classNames from 'classnames';
 import Heart from '../../assets/icons/heart.svg?react';
 import Arrow from '../../assets/icons/arrow-back.svg?react';
 import Trash from '../../assets/icons/trash.svg?react';
+import Info from '../../assets/icons/info.svg?react';
+import Close from '../../assets/icons/close.svg?react';
 
 import styles from './button.module.scss';
 
@@ -17,10 +19,15 @@ const Button = (props) => {
     isTabButton = false,
     isCardButton = false,
     isBackButton = false,
+    isClearCardButton = false,
+    isClearAllCardButton = false,
+    isLinkClubButton = false,
     isRemoveCardButton = false,
     onClickTabButton = undefined,
-    isActiveTab = false,
     onClickCardButton = undefined,
+    onClickClearCardButton = undefined,
+    onClickClearAllCardButton,
+    isActiveTab = false,
     children
   } = props;
 
@@ -67,6 +74,34 @@ const Button = (props) => {
           {children}
         </Link>
       }
+
+    if (isLinkClubButton) {
+      return <Link
+        to='/clubs'
+        className={classNames(styles.button, styles.button__info)}>
+        <Info className={styles.button__iconInfo}/>
+        {children}
+      </Link>
+    }
+
+    if (isClearCardButton) {
+      return <button
+        onClick={onClickClearCardButton}
+        className={classNames(styles.button, styles.button__clear)}
+      >
+        <Close className={styles.button__iconClear}/>
+      </button>
+    }
+
+    if (isClearAllCardButton) {
+      return <button
+        onClick={onClickClearAllCardButton}
+        className={classNames(styles.button, styles.button__clearAll)}
+      >
+        <Trash className={styles.button__iconTrash}/>
+        {children}
+      </button>
+    }
   }
 
   return (

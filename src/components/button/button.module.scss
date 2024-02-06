@@ -29,7 +29,9 @@
     opacity: 0.8;
   }
 
-  &__iconTrash {
+  &__iconTrash,
+  &__iconInfo,
+  &__iconClear {
     width: 26px;
     height: 26px;
   }
@@ -76,6 +78,58 @@
 
     @include active {
       background-color: darken($jade, 12%);
+    }
+  }
+
+  &__info {
+    column-gap: 8px;
+    background-color: transparent;
+    border: 1px solid $jade;
+    color: $black;
+
+    @include hover-focus {
+      background-color: $jade;
+      color: $white;
+    }
+
+    @include active {
+      background-color: darken($jade, 12%);
+    }
+  }
+
+  &__clear {
+    min-width: 30px;
+    background-color: transparent;
+    border: 1px solid $suva-gray;
+    color: $suva-gray;
+
+    @include hover-focus {
+      border: 1px solid transparent;
+      background-color: $black;
+      color: $white;
+    }
+
+    @include active {
+      border: 1px solid transparent;
+      background-color: darken($black, 12%);
+    }
+  }
+
+  &__clearAll {
+    font-size: 18px;
+    column-gap: 8px;
+    padding: 0;
+    background: none;
+    color: $suva-gray;
+
+    @include hover-focus {
+      background: none;
+      color: $jade;
+    }
+
+    @include active {
+      background: none;
+      color: darken($jade, 12%);
     }
   }
 

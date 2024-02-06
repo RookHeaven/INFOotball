@@ -1,0 +1,15 @@
+@import '../../style/variables';
+@import '../../style/mixins';
+
+.favoriteClub {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px;
+  border: 1px solid $jade;
+  border-radius: 30px;
+
+  span {
+    color: $jade;
+  }
+}
