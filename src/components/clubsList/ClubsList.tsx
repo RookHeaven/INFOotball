@@ -5,6 +5,7 @@ import {useDispatch} from "react-redux";
 import {fetchClubs} from "../../slices/clubSlice.ts";
 
 import ClubCard from "../clubCard/ClubCard.tsx";
+import ErrorMessage from "../errorMessage/ErrorMessage.tsx";
 import Skeleton from "../skeleton/Skeleton.tsx";
 
 import styles from './clubsList.module.scss';
@@ -83,11 +84,13 @@ const ClubsList = () => {
 
   const items = filtersLoadingStatus === 'idle' && renderItems(filteredList);
   const skeleton = filtersLoadingStatus === 'loading' && renderSkeleton([...new Array(18)]);
+  const error = filtersLoadingStatus === 'error' && <ErrorMessage/>;
 
 
   return (
     <>
       <h2 className={styles.clubs__title}>{activeTab}</h2>
+      {error}
       {skeleton}
       {items}
     </>
