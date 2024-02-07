@@ -2,12 +2,18 @@
 @import '../../style/mixins';
 
 .favoriteClub {
-  display: flex;
+  display: grid;
+  grid-template-columns: 100px 200px 200px 170px 80px;
   align-items: center;
+  justify-items: center;
   justify-content: space-between;
   padding: 20px;
   border: 1px solid $jade;
   border-radius: 30px;
+
+  h3 {
+    text-align: center;
+  }
 
   span {
     color: $jade;

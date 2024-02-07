@@ -1,27 +1,30 @@
 import {useState, useEffect} from "react";
 import {useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 
-import FootballData from "../../services/FootballData.ts";
+import {fetchClubs} from "../../slices/clubSlice.ts";
+
+import ClubCard from "../clubCard/ClubCard.tsx";
 import Skeleton from "../skeleton/Skeleton.tsx";
 
 import styles from './clubsList.module.scss';
-import ClubCard from "../clubCard/ClubCard.tsx";
+
 
 
 const ClubsList = () => {
   const {activeTab, currentOption, searchValue} = useSelector(state => state.filters);
+  const {clubs, filtersLoadingStatus} = useSelector(state => state.clubs);
 
-  const [clubsList, setClubsList] = useState([]);
+  const dispatch = useDispatch();
+
   const [filteredList, setFilteredList] = useState([]);
-
-  const {getAllClubs, loading} = FootballData();
 
   useEffect(() => {
     setFilteredList(getFilteredClubs())
-  }, [activeTab, loading, currentOption])
+  }, [activeTab, currentOption, filtersLoadingStatus])
 
   useEffect(() => {
-    onRequest();
+    dispatch(fetchClubs())
   }, [])
 
   const getSortingFunction = () => {
@@ -46,22 +49,13 @@ const ClubsList = () => {
   const getFilteredClubs = () => {
     const sortingFunction = getSortingFunction()
 
-    if (activeTab === 'All clubs') return clubsList
+    if (activeTab === 'All clubs') return clubs
       .slice()
       .sort(sortingFunction)
 
-    return clubsList
+    return clubs
       .filter(club => club.country === activeTab)
       .sort(sortingFunction)
-  }
-
-  const onRequest = () => {
-    getAllClubs()
-      .then(onClubsListLoaded)
-  }
-
-  const onClubsListLoaded = (newClubsList) => {
-    setClubsList(newClubsList);
   }
 
   function renderItems (arr) {
@@ -87,8 +81,8 @@ const ClubsList = () => {
     )
   }
 
-  const items = !loading && renderItems(filteredList);
-  const skeleton = loading && renderSkeleton([...new Array(18)]);
+  const items = filtersLoadingStatus === 'idle' && renderItems(filteredList);
+  const skeleton = filtersLoadingStatus === 'loading' && renderSkeleton([...new Array(18)]);
 
 
   return (

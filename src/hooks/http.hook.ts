@@ -1,30 +1,18 @@
-import {useCallback, useState} from "react";
-
 import axios from "axios";
 
-const useHttp = () => {
-  const [loading, setLoading] = useState(false);
+export const useHttp = () => {
 
-  const request = useCallback(async (url,
-                                            method = 'GET',
-                                            data = null,
-                                            headers = {
-                                              'Content-Type': 'application/json'}) => {
+  const request = async (url,
+                         method = 'GET',
+                         data = null,
+                         headers = {
+                             'Content-Type': 'application/json'
+                              }) => {
 
-    setLoading(true);
+    const response = await axios.get(url, {method, data, headers});
 
-    try {
-      const response = await axios.get(url, {method, data, headers});
+    return response.data;
+  };
 
-      setLoading(false);
-      return response.data;
-    } catch(e) {
-      setLoading(false);
-      throw e;
-    }
-  }, []);
-
-  return {loading, request}
+  return {request}
 }
-
-export default useHttp;
