@@ -13,6 +13,14 @@
   border-radius: 10px;
   max-width: 1400px;
 
+  &__image {
+    display: block;
+    width: 700px;
+    height: 700px;
+    object-fit: contain;
+    margin: 0 auto;
+  }
+
   &__text {
     text-align: center;
     font-weight: bold;
