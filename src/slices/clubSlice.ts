@@ -58,6 +58,4 @@ export const clubSlice = createSlice({
   }
 })
 
-export const {setClubs} = clubSlice.actions
-
 export default clubSlice.reducer

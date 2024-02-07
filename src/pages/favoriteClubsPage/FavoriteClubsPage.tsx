@@ -1,4 +1,4 @@
-import EmptyFavorites from "../../components/emptyFavorites/EmptyFavorites.tsx";
+import EmptyMessage from "../../components/emptyMessage/EmptyMessage.tsx";
 import FavoriteClub from "../../components/favoriteClub/FavoriteClub.tsx";
 import Button from "../../components/button/Button.tsx";
 
@@ -8,7 +8,6 @@ import {clearAllFavorite} from "../../slices/favoriteSlice.ts";
 import Heart from '../../assets/icons/heart.svg?react';
 
 import styles from './favoriteClubsPage.module.scss';
-
 
 
 const FavoriteClubsPage = () => {
@@ -33,7 +32,7 @@ const FavoriteClubsPage = () => {
 
   if (clubs.length === 0) {
     return (
-      <EmptyFavorites/>
+      <EmptyMessage/>
     )
   }
 
