@@ -58,4 +58,6 @@ export const clubSlice = createSlice({
   }
 })
 
+export const selectClubs = state => state.clubs;
+
 export default clubSlice.reducer

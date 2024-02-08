@@ -22,6 +22,8 @@ export const filterSlice = createSlice({
   },
 })
 
+export const selectFilters = state => state.filters;
+
 export const { setActiveTab, setCurrentOption, setSearchValue } = filterSlice.actions
 
 export default filterSlice.reducer

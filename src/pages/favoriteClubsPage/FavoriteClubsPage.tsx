@@ -3,7 +3,7 @@ import FavoriteClub from "../../components/favoriteClub/FavoriteClub.tsx";
 import Button from "../../components/button/Button.tsx";
 
 import {useDispatch, useSelector} from "react-redux";
-import {clearAllFavorite} from "../../slices/favoriteSlice.ts";
+import {clearAllFavorite, selectFavorites} from "../../slices/favoriteSlice.ts";
 
 import Heart from '../../assets/icons/heart.svg?react';
 
@@ -11,7 +11,7 @@ import styles from './favoriteClubsPage.module.scss';
 
 
 const FavoriteClubsPage = () => {
-  const {clubs} = useSelector(state => state.favorites);
+  const {clubs} = useSelector(selectFavorites);
   const dispatch = useDispatch();
 
   const onClearAllFavoriteClub = () => {

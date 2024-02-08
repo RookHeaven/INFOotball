@@ -1,5 +1,5 @@
 import {useDispatch, useSelector} from "react-redux";
-import {setActiveTab} from "../../slices/filterSlice.ts";
+import {selectFilters, setActiveTab} from "../../slices/filterSlice.ts";
 import Button from "../button/Button.tsx";
 
 import styles from './tabs.module.scss';
@@ -8,7 +8,7 @@ import styles from './tabs.module.scss';
 const tabsTitles = ['All clubs', 'Russia', 'England', 'France', 'Germany', 'Italy', 'Spain'];
 
 const Tabs = () => {
-  const {activeTab} = useSelector(state => state.filters);
+  const {activeTab} = useSelector(selectFilters);
   const dispatch = useDispatch();
 
   const onClickTab = (title) => {

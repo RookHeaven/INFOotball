@@ -2,19 +2,20 @@ import {useState, useEffect} from "react";
 import {useSelector} from "react-redux";
 import {useDispatch} from "react-redux";
 
-import {fetchClubs} from "../../slices/clubSlice.ts";
+import {fetchClubs, selectClubs} from "../../slices/clubSlice.ts";
 
 import ClubCard from "../clubCard/ClubCard.tsx";
 import ErrorMessage from "../errorMessage/ErrorMessage.tsx";
 import Skeleton from "../skeleton/Skeleton.tsx";
 
 import styles from './clubsList.module.scss';
+import {selectFilters} from "../../slices/filterSlice.ts";
 
 
 
 const ClubsList = () => {
-  const {activeTab, currentOption, searchValue} = useSelector(state => state.filters);
-  const {clubs, filtersLoadingStatus} = useSelector(state => state.clubs);
+  const {activeTab, currentOption, searchValue} = useSelector(selectFilters);
+  const {clubs, filtersLoadingStatus} = useSelector(selectClubs);
 
   const dispatch = useDispatch();
 

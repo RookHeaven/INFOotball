@@ -20,6 +20,8 @@ export const favoriteSlice = createSlice({
   },
 })
 
+export const selectFavorites = state => state.favorites;
+
 export const {
   addToFavorite,
   removeFromFavorite,

@@ -1,12 +1,12 @@
 import Button from "../button/Button.tsx";
 
-import {addToFavorite, removeFromFavorite} from "../../slices/favoriteSlice.ts";
+import {addToFavorite, removeFromFavorite, selectFavorites} from "../../slices/favoriteSlice.ts";
 import {useDispatch, useSelector} from "react-redux";
 
 import styles from "../clubCard/clubCard.module.scss";
 
 const ClubCard = ({item}) => {
-  const {clubs} = useSelector(state => state.favorites);
+  const {clubs} = useSelector(selectFavorites);
   const dispatch = useDispatch();
 
   const isClubInFavorites = clubs.some(club => club.id === item.id);

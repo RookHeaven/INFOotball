@@ -1,4 +1,5 @@
 import {useSelector} from "react-redux";
+import {selectFavorites} from "../../slices/favoriteSlice.ts";
 
 import {Link} from "react-router-dom";
 
@@ -11,6 +12,7 @@ import Info from '../../assets/icons/info.svg?react';
 import Close from '../../assets/icons/close.svg?react';
 
 import styles from './button.module.scss';
+
 
 
 const Button = (props) => {
@@ -31,7 +33,7 @@ const Button = (props) => {
     children
   } = props;
 
-  const {clubs} = useSelector(state => state.favorites);
+  const {clubs} = useSelector(selectFavorites);
 
   const renderButton = () => {
       if (isLinkButton) {

@@ -1,6 +1,6 @@
 import {useRef} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {setSearchValue} from "../../slices/filterSlice.ts";
+import {selectFilters, setSearchValue} from "../../slices/filterSlice.ts";
 
 import styles from './search.module.scss';
 
@@ -8,7 +8,7 @@ import SearchIcon from '../../assets/icons/search.svg?react';
 import Close from '../../assets/icons/close.svg?react';
 
 const Search = () => {
-  const {searchValue} = useSelector(state => state.filters);
+  const {searchValue} = useSelector(selectFilters);
   const dispatch = useDispatch();
   const inputRef = useRef();
 

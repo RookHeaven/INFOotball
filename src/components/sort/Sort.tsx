@@ -1,5 +1,5 @@
 import {useDispatch, useSelector} from "react-redux";
-import {setCurrentOption} from "../../slices/filterSlice.ts";
+import {selectFilters, setCurrentOption} from "../../slices/filterSlice.ts";
 
 import Select from "react-select";
 
@@ -15,7 +15,7 @@ const options = [
 ]
 
 const Sort = () => {
-  const {currentOption} = useSelector(state => state.filters);
+  const {currentOption} = useSelector(selectFilters);
   const dispatch = useDispatch();
 
   const onClickOption = (option) => {
