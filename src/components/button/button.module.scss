@@ -79,6 +79,20 @@
     @include active {
       background-color: darken($jade, 12%);
     }
+
+    &.remove {
+      border: 1px solid $cinnabar;
+      color: $cinnabar;
+
+      @include hover-focus {
+        background-color: $cinnabar;
+        color: $white;
+      }
+
+      @include active {
+        background-color: darken($cinnabar, 12%);
+      }
+    }
   }
 
   &__info {
@@ -100,18 +114,18 @@
   &__clear {
     min-width: 30px;
     background-color: transparent;
-    border: 1px solid $suva-gray;
-    color: $suva-gray;
+    border: 1px solid $cinnabar;
+    color: $cinnabar;
 
     @include hover-focus {
       border: 1px solid transparent;
-      background-color: $black;
+      background-color: $cinnabar;
       color: $white;
     }
 
     @include active {
       border: 1px solid transparent;
-      background-color: darken($black, 12%);
+      background-color: darken($cinnabar, 12%);
     }
   }
 
@@ -124,12 +138,12 @@
 
     @include hover-focus {
       background: none;
-      color: $jade;
+      color: $cinnabar;
     }
 
     @include active {
       background: none;
-      color: darken($jade, 12%);
+      color: darken($cinnabar, 12%);
     }
   }
 

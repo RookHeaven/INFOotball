@@ -28,8 +28,9 @@ const Button = (props) => {
     onClickTabButton = undefined,
     onClickCardButton = undefined,
     onClickClearCardButton = undefined,
-    onClickClearAllCardButton,
+    onClickClearAllCardButton = undefined,
     isActiveTab = false,
+    clubID = undefined,
     children
   } = props;
 
@@ -50,7 +51,7 @@ const Button = (props) => {
       if (isCardButton) {
         return <button
           onClick={onClickCardButton}
-          className={classNames(styles.button, styles.button__card)}>
+          className={classNames(styles.button, styles.button__card, isRemoveCardButton && styles.remove)}>
           {isRemoveCardButton
             ? <Trash className={styles.button__iconTrash}/>
             : <Heart className={styles.button__icon}/>
@@ -79,7 +80,7 @@ const Button = (props) => {
 
     if (isLinkClubButton) {
       return <Link
-        to='/clubs'
+        to={`/clubs/${clubID}`}
         className={classNames(styles.button, styles.button__info)}>
         <Info className={styles.button__iconInfo}/>
         {children}

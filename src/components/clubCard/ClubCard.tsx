@@ -2,6 +2,7 @@ import Button from "../button/Button.tsx";
 
 import {addToFavorite, removeFromFavorite, selectFavorites} from "../../slices/favoriteSlice.ts";
 import {useDispatch, useSelector} from "react-redux";
+import {Link} from "react-router-dom";
 
 import styles from "../clubCard/clubCard.module.scss";
 
@@ -21,8 +22,10 @@ const ClubCard = ({item}) => {
   }
 
   return (
-    <li className={styles.club} key={item.id}>
-      <img className={styles.club__image} width='200' height='200' src={item.imgSrc} alt="Football club team badge"/>
+    <li className={styles.club}>
+      <Link className={styles.club__link} to={`/clubs/${item.id}`}>
+        <img className={styles.club__image} width='200' height='200' src={item.imgSrc} alt="Football club team badge"/>
+      </Link>
       <h3 className={styles.club__title}>{item.title}</h3>
       <p>Formed year: <span>{item.formedYear}</span></p>
       <p>Stadium capacity: <span>{item.stadiumCapacity}</span></p>

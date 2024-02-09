@@ -15,7 +15,7 @@ function FavoriteClub({item}) {
 
   return (
     <li className={styles.favoriteClub}>
-      <img className={styles.favoriteClub__image} width='80' height='80' src={item.imgSrc} alt="Football club team badge"/>
+      <img className={styles.favoriteClub__image} width='80' height='80' src={item.imgSrc} alt="Football club team badge."/>
       <h3 className={styles.favoriteClub__title}>{item.title}</h3>
       <div className={styles.favoriteClub__info}>
         <p>Formed year: <span>{item.formedYear}</span></p>
@@ -23,6 +23,7 @@ function FavoriteClub({item}) {
       </div>
       <Button
         isLinkClubButton={true}
+        clubID={item.id}
       >
         Club Page
       </Button>

@@ -1,0 +1,81 @@
+@import '../../style/variables';
+@import '../../style/mixins';
+
+.club {
+  padding-top: 40px;
+  padding-bottom: 40px;
+
+  &__container {
+    width: 100%;
+    max-width: 1340px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    padding: 40px;
+    border: 1px solid $jade;
+    border-radius: 30px;
+  }
+
+  &__top {
+    position: relative;
+    display: flex;
+    padding-bottom: 15px;
+    column-gap: 8%;
+    align-items: center;
+    justify-content: center;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      height: 1px;
+      width: 100%;
+      background-color: $jade;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  &__title {
+    margin-top: 0;
+    font-size: 28px;
+  }
+
+  &__description {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 28px;
+    column-rule-style: dotted;
+    column-rule-color: $jade;
+
+    &::first-letter {
+      font-size: 30px;
+      font-weight: 500;
+      color: $jade;
+    }
+  }
+
+  span {
+    color: $jade;
+  }
+
+  &__link {
+    color: $jade;
+    text-decoration: underline;
+
+    @include hover-focus {
+      color: darken($jade, 8%);
+    }
+
+    @include active {
+      color: darken($jade, 12%);
+    }
+  }
+}

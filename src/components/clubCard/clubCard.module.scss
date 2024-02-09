@@ -8,16 +8,26 @@
   flex-direction: column;
   align-items: center;
   list-style-type: none;
+  text-align: center;
   border: 1px solid $jade;
   border-radius: 30px;
 
+  &__link {
+    @include hover-focus {
+      img {
+        transform: scale(1.1);
+      }
+    }
 
-  @include hover-focus {
-    box-shadow: inset 0 0 5px $jade;
+    @include active {
+      img {
+        transform: scale(1);
+      }
+    }
   }
 
-  &:has(.button__card:focus) {
-    box-shadow: inset 0 0 5px $jade;
+  &__image {
+    transition: all $trans-default;
   }
 
   &__title {
