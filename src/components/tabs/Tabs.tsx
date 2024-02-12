@@ -6,20 +6,20 @@ import {selectFilters, setActiveTab} from '../../slices/filterSlice.ts';
 
 import styles from './tabs.module.scss';
 
-const tabsTitles = ['All clubs', 'Russia', 'England', 'France', 'Germany', 'Italy', 'Spain'];
+const tabsTitles: string[] = ['All clubs', 'Russia', 'England', 'France', 'Germany', 'Italy', 'Spain'];
 
 const Tabs = () => {
   const {activeTab} = useSelector(selectFilters);
   const dispatch = useDispatch();
 
-  const onClickTab = (title) => {
+  const onClickTab = (title: string) => {
     dispatch(setActiveTab(title));
   }
 
   return (
     <div className={styles.tabs}>
       <ul>
-        {tabsTitles.map((tabTitle) => (
+        {tabsTitles.map((tabTitle: string) => (
           <li key={tabTitle}>
             <Button isTabButton={true}
                     onClickTabButton={() => onClickTab(tabTitle)}
