@@ -1,6 +1,6 @@
-import Tabs from "../../components/tabs/Tabs.tsx";
-import Sort from "../../components/sort/Sort.tsx";
-import ClubsList from "../../components/clubsList/ClubsList.tsx";
+import Tabs from '../../components/tabs/Tabs.tsx';
+import Sort from '../../components/sort/Sort.tsx';
+import ClubsList from '../../components/clubsList/ClubsList.tsx';
 
 import styles from './mainPage.module.scss';
 

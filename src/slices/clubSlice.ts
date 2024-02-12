@@ -1,4 +1,4 @@
-import {useHttp} from "../hooks/http.hook.ts";
+import {useHttp} from '../hooks/http.hook.ts';
 
 import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
 

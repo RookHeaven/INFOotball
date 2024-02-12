@@ -1,9 +1,10 @@
-import {useLoaderData} from "react-router-dom";
+import Button from '../../components/button/Button.tsx';
 
-import classNames from "classnames";
+import {useLoaderData} from 'react-router-dom';
+
+import classNames from 'classnames';
 
 import styles from './clubPage.module.scss';
-import Button from "../../components/button/Button.tsx";
 
 function ClubPage() {
   const club = useLoaderData();

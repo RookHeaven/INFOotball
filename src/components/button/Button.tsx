@@ -1,7 +1,7 @@
-import {useSelector} from "react-redux";
-import {selectFavorites} from "../../slices/favoriteSlice.ts";
+import {useSelector} from 'react-redux';
+import {selectFavorites} from '../../slices/favoriteSlice.ts';
 
-import {Link} from "react-router-dom";
+import {Link} from 'react-router-dom';
 
 import classNames from 'classnames';
 

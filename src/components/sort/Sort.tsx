@@ -1,7 +1,7 @@
-import {useDispatch, useSelector} from "react-redux";
-import {selectFilters, setCurrentOption} from "../../slices/filterSlice.ts";
+import Select from 'react-select';
 
-import Select from "react-select";
+import {useDispatch, useSelector} from 'react-redux';
+import {selectFilters, setCurrentOption} from '../../slices/filterSlice.ts';
 
 import './sort.scss';
 

@@ -1,5 +1,5 @@
-import Header from "../header/Header.tsx";
-import {Outlet} from "react-router-dom";
+import Header from '../header/Header.tsx';
+import {Outlet} from 'react-router-dom';
 
 import style from './app.module.scss';
 

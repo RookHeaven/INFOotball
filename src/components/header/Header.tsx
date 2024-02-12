@@ -1,6 +1,6 @@
 import {Link} from "react-router-dom";
 import Button from "../button/Button.tsx";
-import Search from "../search/Search.tsx";
+import Search from '../search/Search.tsx';
 
 import classNames from 'classnames';
 

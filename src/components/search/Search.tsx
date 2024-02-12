@@ -1,6 +1,8 @@
-import {useRef} from "react";
-import {useDispatch, useSelector} from "react-redux";
-import {selectFilters, setSearchValue} from "../../slices/filterSlice.ts";
+import {useRef} from 'react';
+
+import {useDispatch, useSelector} from 'react-redux';
+
+import {selectFilters, setSearchValue} from '../../slices/filterSlice.ts';
 
 import styles from './search.module.scss';
 

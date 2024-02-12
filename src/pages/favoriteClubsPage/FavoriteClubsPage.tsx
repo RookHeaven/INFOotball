@@ -1,9 +1,10 @@
-import EmptyMessage from "../../components/emptyMessage/EmptyMessage.tsx";
-import FavoriteClub from "../../components/favoriteClub/FavoriteClub.tsx";
-import Button from "../../components/button/Button.tsx";
+import EmptyMessage from '../../components/emptyMessage/EmptyMessage.tsx';
+import FavoriteClub from '../../components/favoriteClub/FavoriteClub.tsx';
+import Button from '../../components/button/Button.tsx';
 
-import {useDispatch, useSelector} from "react-redux";
-import {clearAllFavorite, selectFavorites} from "../../slices/favoriteSlice.ts";
+import {useDispatch, useSelector} from 'react-redux';
+
+import {clearAllFavorite, selectFavorites} from '../../slices/favoriteSlice.ts';
 
 import Heart from '../../assets/icons/heart.svg?react';
 

@@ -1,6 +1,6 @@
-import Button from "../button/Button.tsx";
+import Button from '../button/Button.tsx';
 
-import styles from "./emptyMessage.module.scss";
+import styles from './emptyMessage.module.scss';
 
 import img from './empty.gif';
 

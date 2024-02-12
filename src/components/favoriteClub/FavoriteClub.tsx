@@ -1,7 +1,7 @@
-import Button from "../button/Button.tsx";
+import Button from '../button/Button.tsx';
 
-import {useDispatch} from "react-redux";
-import {removeFromFavorite} from "../../slices/favoriteSlice.ts";
+import {useDispatch} from 'react-redux';
+import {removeFromFavorite} from '../../slices/favoriteSlice.ts';
 
 import styles from './favoriteClub.module.scss';
 

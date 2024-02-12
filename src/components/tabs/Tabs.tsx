@@ -1,9 +1,10 @@
-import {useDispatch, useSelector} from "react-redux";
-import {selectFilters, setActiveTab} from "../../slices/filterSlice.ts";
-import Button from "../button/Button.tsx";
+import Button from '../button/Button.tsx';
+
+import {useDispatch, useSelector} from 'react-redux';
+
+import {selectFilters, setActiveTab} from '../../slices/filterSlice.ts';
 
 import styles from './tabs.module.scss';
-
 
 const tabsTitles = ['All clubs', 'Russia', 'England', 'France', 'Germany', 'Italy', 'Spain'];
 

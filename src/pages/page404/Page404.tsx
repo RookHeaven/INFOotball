@@ -1,8 +1,8 @@
-import Button from "../../components/button/Button.tsx";
+import Button from '../../components/button/Button.tsx';
 
 import styles from './page404.module.scss'
 
-import img from "./404.gif";
+import img from './404.gif';
 
 const Page404 = () => {
   return (
