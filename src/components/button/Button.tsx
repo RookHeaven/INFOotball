@@ -5,6 +5,8 @@ import {selectFavorites} from '../../slices/favoriteSlice.ts';
 
 import {Link} from 'react-router-dom';
 
+import {FC, ReactNode} from 'react';
+
 import classNames from 'classnames';
 
 import Heart from '../../assets/icons/heart.svg?react';
@@ -15,24 +17,40 @@ import Close from '../../assets/icons/close.svg?react';
 
 import styles from './button.module.scss';
 
+interface ButtonProps {
+  isLinkButton?: boolean;
+  isTabButton?: boolean;
+  isCardButton?: boolean;
+  isBackButton?: boolean;
+  isClearCardButton?: boolean;
+  isClearAllCardButton?: boolean;
+  isLinkClubButton?: boolean;
+  isRemoveCardButton?: boolean;
+  onClickTabButton?: () => void;
+  onClickCardButton?: () => void;
+  onClickClearCardButton?: () => void;
+  onClickClearAllCardButton?: () => void;
+  isActiveTab?: boolean;
+  clubID?: string;
+  children?: ReactNode;
+}
 
-
-const Button = (props) => {
+const Button: FC<ButtonProps> = (props) => {
   const {
-    isLinkButton = false,
-    isTabButton = false,
-    isCardButton = false,
-    isBackButton = false,
-    isClearCardButton = false,
-    isClearAllCardButton = false,
-    isLinkClubButton = false,
-    isRemoveCardButton = false,
-    onClickTabButton = undefined,
-    onClickCardButton = undefined,
-    onClickClearCardButton = undefined,
-    onClickClearAllCardButton = undefined,
-    isActiveTab = false,
-    clubID = undefined,
+    isLinkButton,
+    isTabButton,
+    isCardButton,
+    isBackButton,
+    isClearCardButton,
+    isClearAllCardButton,
+    isLinkClubButton,
+    isRemoveCardButton,
+    onClickTabButton,
+    onClickCardButton,
+    onClickClearCardButton,
+    onClickClearAllCardButton,
+    isActiveTab,
+    clubID,
     children
   } = props;
 
