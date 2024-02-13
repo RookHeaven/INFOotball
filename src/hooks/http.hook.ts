@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const useHttp = () => {
 
-  const request = async (url,
+  const request = async (url: string,
                          method = 'GET',
                          data = null,
                          headers = {
