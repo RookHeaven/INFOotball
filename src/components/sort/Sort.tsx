@@ -1,9 +1,16 @@
 import Select from 'react-select';
 
+import {FC} from 'react';
+
 import {useDispatch, useSelector} from 'react-redux';
 import {selectFilters, setCurrentOption} from '../../slices/filterSlice.ts';
 
 import './sort.scss';
+
+interface Option {
+  value: string;
+  label: string;
+}
 
 const options = [
   { value: 'alphabeticalAsc', label: 'alphabetical (A-Z)' },
@@ -14,11 +21,11 @@ const options = [
   { value: 'capacityDesc', label: 'stadium capacity ↓' }
 ]
 
-const Sort = () => {
+const Sort: FC = () => {
   const {currentOption} = useSelector(selectFilters);
   const dispatch = useDispatch();
 
-  const onClickOption = (option) => {
+  const onClickOption = (option: Option) => {
     dispatch(setCurrentOption(option.value));
   }
 

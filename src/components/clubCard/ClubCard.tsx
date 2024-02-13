@@ -8,7 +8,19 @@ import {FC} from 'react';
 
 import styles from '../clubCard/clubCard.module.scss';
 
-const ClubCard: FC = ({item}) => {
+interface ClubCard {
+  imgSrc: string;
+  title: string;
+  formedYear: string;
+  stadiumCapacity: string;
+  id: string;
+}
+
+type ClubCardProps = {
+  item: ClubCard;
+}
+
+const ClubCard: FC<ClubCardProps> = ({item}) => {
   const {clubs} = useSelector(selectFavorites);
   const dispatch = useDispatch();
 
@@ -17,7 +29,7 @@ const ClubCard: FC = ({item}) => {
     ? 'Remove from favorites'
     : 'Add to favorites';
 
-  const onToggleClub = (item) => {
+  const onToggleClub = (item: ClubCard) => {
     isClubInFavorites
       ? dispatch(removeFromFavorite(item.id))
       : dispatch(addToFavorite(item));

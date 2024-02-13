@@ -1,6 +1,6 @@
 /// <reference types="vite-plugin-svgr/client" />
 
-import {useRef} from 'react';
+import {FC, useRef} from 'react';
 
 import {useDispatch, useSelector} from 'react-redux';
 
@@ -11,7 +11,7 @@ import styles from './search.module.scss';
 import SearchIcon from '../../assets/icons/search.svg?react';
 import Close from '../../assets/icons/close.svg?react';
 
-const Search = () => {
+const Search: FC = () => {
   const {searchValue} = useSelector(selectFilters);
   const dispatch = useDispatch();
   const inputRef = useRef<HTMLInputElement>(null);

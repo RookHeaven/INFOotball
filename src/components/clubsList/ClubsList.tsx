@@ -4,6 +4,7 @@ import Skeleton from '../skeleton/Skeleton.tsx';
 
 import {useState, useEffect, FC} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
+import {AppDispatch} from '../../store/store.ts';
 
 import {fetchClubs, selectClubs} from '../../slices/clubSlice.ts';
 import {selectFilters} from '../../slices/filterSlice.ts';
@@ -16,7 +17,7 @@ const ClubsList: FC = () => {
   const {activeTab, currentOption, searchValue} = useSelector(selectFilters);
   const {clubs, filtersLoadingStatus} = useSelector(selectClubs);
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch<AppDispatch>();
 
   const [filteredList, setFilteredList] = useState([]);
 

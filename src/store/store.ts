@@ -7,3 +7,5 @@ import clubs from '../slices/clubSlice.ts'
 export const store = configureStore({
   reducer: {filters, favorites, clubs},
 })
+
+export type AppDispatch = typeof store.dispatch
