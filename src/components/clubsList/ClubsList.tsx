@@ -73,7 +73,7 @@ const ClubsList: FC = () => {
   }
 
   function renderSkeleton (arr) {
-    const items = arr.map((_, index) => <Skeleton className='skeleton' key={index}/>)
+    const items = arr.map((_, index) => <Skeleton key={index}/>)
 
     return (
       <ul className={styles.clubs}>
