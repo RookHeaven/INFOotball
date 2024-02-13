@@ -4,7 +4,7 @@ import styles from './emptyMessage.module.scss';
 
 import img from './empty.gif';
 
-function EmptyMessage() {
+const EmptyMessage = () => {
   return (
     <div className={styles.empty}>
       <h2 className={styles.empty__title}>The list of favorite clubs is <span>empty</span></h2>

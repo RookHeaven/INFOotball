@@ -1,3 +1,5 @@
+/// <reference types="vite-plugin-svgr/client" />
+
 import {useRef} from 'react';
 
 import {useDispatch, useSelector} from 'react-redux';
@@ -12,7 +14,7 @@ import Close from '../../assets/icons/close.svg?react';
 const Search = () => {
   const {searchValue} = useSelector(selectFilters);
   const dispatch = useDispatch();
-  const inputRef = useRef();
+  const inputRef = useRef<HTMLInputElement>(null);
 
   const onChangeInput = (event) => {
     dispatch(setSearchValue(event.target.value))
@@ -20,7 +22,7 @@ const Search = () => {
 
   const onClickClose = () => {
     dispatch(setSearchValue(''));
-    inputRef.current.focus();
+    inputRef.current?.focus();
   }
 
   return (

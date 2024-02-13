@@ -6,7 +6,7 @@ import classNames from 'classnames';
 
 import styles from './clubPage.module.scss';
 
-function ClubPage() {
+const ClubPage = () => {
   const club = useLoaderData();
 
   const getColumnsStyle = () => {

@@ -1,3 +1,5 @@
+/// <reference types="vite-plugin-svgr/client" />
+
 import {useSelector} from 'react-redux';
 import {selectFavorites} from '../../slices/favoriteSlice.ts';
 
