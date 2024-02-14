@@ -6,8 +6,20 @@ import classNames from 'classnames';
 
 import styles from './clubPage.module.scss';
 
+interface Club {
+  imgSrc: string;
+  title: string;
+  formedYear: string;
+  league: string;
+  country: string;
+  stadium: string;
+  stadiumCapacity: string;
+  website: string;
+  description: string;
+}
+
 const ClubPage = () => {
-  const club = useLoaderData();
+  const club: Club = useLoaderData() as Club;
 
   const getColumnsStyle = () => {
     const length = club.description.length;

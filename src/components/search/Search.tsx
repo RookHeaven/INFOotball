@@ -1,6 +1,6 @@
 /// <reference types="vite-plugin-svgr/client" />
 
-import {FC, useRef} from 'react';
+import {ChangeEvent, FC, useRef} from 'react';
 
 import {useDispatch, useSelector} from 'react-redux';
 
@@ -16,7 +16,7 @@ const Search: FC = () => {
   const dispatch = useDispatch();
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const onChangeInput = (event) => {
+  const onChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
     dispatch(setSearchValue(event.target.value))
   }
 
