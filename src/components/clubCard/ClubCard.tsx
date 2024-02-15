@@ -6,30 +6,24 @@ import {Link} from 'react-router-dom';
 
 import {FC} from 'react';
 
+import {Club} from '../../@types/types.ts';
+
 import styles from '../clubCard/clubCard.module.scss';
 
-interface ClubCard {
-  imgSrc: string;
-  title: string;
-  formedYear: string;
-  stadiumCapacity: string;
-  id: string;
-}
-
 type ClubCardProps = {
-  item: ClubCard;
+  item: Club;
 }
 
 const ClubCard: FC<ClubCardProps> = ({item}) => {
   const {clubs} = useSelector(selectFavorites);
   const dispatch = useDispatch();
 
-  const isClubInFavorites = clubs.some(club => club.id === item.id);
-  const text = isClubInFavorites
+  const isClubInFavorites: boolean = clubs.some(club => club.id === item.id);
+  const text: string = isClubInFavorites
     ? 'Remove from favorites'
     : 'Add to favorites';
 
-  const onToggleClub = (item: ClubCard) => {
+  const onToggleClub = (item: Club): void => {
     isClubInFavorites
       ? dispatch(removeFromFavorite(item.id))
       : dispatch(addToFavorite(item));

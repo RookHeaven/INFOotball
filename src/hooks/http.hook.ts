@@ -1,15 +1,16 @@
 import axios from 'axios';
+import {DataClub} from '../@types/types.ts';
 
 export const useHttp = () => {
 
   const request = async (url: string,
-                         method = 'GET',
-                         data = null,
+                         method: string = 'GET',
+                         data: null = null,
                          headers = {
                              'Content-Type': 'application/json'
-                              }) => {
+                              }): Promise<DataClub[]> => {
 
-    const response = await axios.get(url, {method, data, headers});
+    const response = await axios.get<DataClub[]>(url, {method, data, headers});
 
     return response.data;
   };

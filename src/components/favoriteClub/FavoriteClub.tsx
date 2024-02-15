@@ -3,25 +3,20 @@ import Button from '../button/Button.tsx';
 import {useDispatch} from 'react-redux';
 import {removeFromFavorite} from '../../slices/favoriteSlice.ts';
 
-import styles from './favoriteClub.module.scss';
 import {FC} from 'react';
 
-interface FavoriteClub {
-  imgSrc: string;
-  title: string;
-  formedYear: string;
-  stadiumCapacity: string;
-  id: string;
-}
+import {Club} from '../../@types/types.ts';
+
+import styles from './favoriteClub.module.scss';
 
 type FavoriteClubProps = {
-  item: FavoriteClub;
+  item: Club;
 }
 
 const FavoriteClub: FC<FavoriteClubProps> = ({item}) => {
   const dispatch = useDispatch();
 
-  const onClearFavoriteClub = (item: FavoriteClub) => {
+  const onClearFavoriteClub = (item: Club): void => {
     dispatch(removeFromFavorite(item.id))
   }
 

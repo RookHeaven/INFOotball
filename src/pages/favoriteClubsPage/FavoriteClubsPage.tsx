@@ -6,21 +6,25 @@ import {useDispatch, useSelector} from 'react-redux';
 
 import {clearAllFavorite, selectFavorites} from '../../slices/favoriteSlice.ts';
 
+import {FC, JSX} from 'react';
+
+import {Club} from '../../@types/types.ts';
+
 import Heart from '../../assets/icons/heart.svg?react';
 
 import styles from './favoriteClubsPage.module.scss';
 
 
-const FavoriteClubsPage = () => {
+const FavoriteClubsPage: FC = () => {
   const {clubs} = useSelector(selectFavorites);
   const dispatch = useDispatch();
 
-  const onClearAllFavoriteClub = () => {
+  const onClearAllFavoriteClub = (): void => {
     dispatch(clearAllFavorite())
   }
 
-  function renderItems (arr) {
-    const items = arr.map(item => <FavoriteClub key={item.id} item={item}/>)
+  function renderItems (arr: Club[]): JSX.Element {
+    const items: JSX.Element[] = arr.map(item => <FavoriteClub key={item.id} item={item}/>)
 
     return (
       <ul className={styles.favorite__list}>
@@ -29,7 +33,7 @@ const FavoriteClubsPage = () => {
     )
   }
 
-  const items = renderItems(clubs);
+  const items: JSX.Element = renderItems(clubs);
 
   if (clubs.length === 0) {
     return (

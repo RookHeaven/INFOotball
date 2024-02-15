@@ -2,12 +2,14 @@ import ClubCard from '../clubCard/ClubCard.tsx';
 import ErrorMessage from '../errorMessage/ErrorMessage.tsx';
 import Skeleton from '../skeleton/Skeleton.tsx';
 
-import {useState, useEffect, FC} from 'react';
+import {useState, useEffect, FC, JSX} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
 import {AppDispatch} from '../../store/store.ts';
 
-import {fetchClubs, selectClubs} from '../../slices/clubSlice.ts';
+import {fetchClubs, selectClubs, Status} from '../../slices/clubSlice.ts';
 import {selectFilters} from '../../slices/filterSlice.ts';
+
+import {Club} from '../../@types/types.ts';
 
 import styles from './clubsList.module.scss';
 
@@ -19,7 +21,7 @@ const ClubsList: FC = () => {
 
   const dispatch = useDispatch<AppDispatch>();
 
-  const [filteredList, setFilteredList] = useState([]);
+  const [filteredList, setFilteredList] = useState<Club[]>([]);
 
   useEffect(() => {
     setFilteredList(getFilteredClubs())
@@ -32,23 +34,23 @@ const ClubsList: FC = () => {
   const getSortingFunction = () => {
     switch (currentOption) {
       case 'alphabeticalAsc':
-        return (a, b) => a.title.localeCompare(b.title)
+        return (a: Club, b: Club) => a.title.localeCompare(b.title)
       case 'alphabeticalDesc':
-        return (a, b) => b.title.localeCompare(a.title)
+        return (a: Club, b: Club) => b.title.localeCompare(a.title)
       case 'yearDesc':
-        return (a, b) => b.formedYear - a.formedYear
+        return (a: Club, b: Club) => parseInt(b.formedYear) - parseInt(a.formedYear)
       case 'yearAsc':
-        return (a, b) => a.formedYear - b.formedYear
+        return (a: Club, b: Club) => parseInt(a.formedYear) - parseInt(b.formedYear)
       case 'capacityDesc':
-        return (a, b) => b.stadiumCapacity - a.stadiumCapacity
+        return (a: Club, b: Club) => parseInt(b.stadiumCapacity) - parseInt(a.stadiumCapacity)
       case 'capacityAsc':
-        return (a, b) => a.stadiumCapacity - b.stadiumCapacity
+        return (a: Club, b: Club) => parseInt(a.stadiumCapacity) - parseInt(b.stadiumCapacity)
       default:
-        return (a, b) => a.title.localeCompare(b.title);
+        return (a: Club, b: Club) => a.title.localeCompare(b.title);
     }
   }
 
-  const getFilteredClubs = () => {
+  const getFilteredClubs = (): Club[] => {
     const sortingFunction = getSortingFunction()
 
     if (activeTab === 'All clubs') return clubs
@@ -60,8 +62,8 @@ const ClubsList: FC = () => {
       .sort(sortingFunction)
   }
 
-  function renderItems (arr) {
-    const items = arr
+  function renderItems (arr: Club[]): JSX.Element {
+    const items: JSX.Element[] = arr
       .filter(item => item.title.toLowerCase().includes(searchValue.toLowerCase()))
       .map(item => <ClubCard key={item.id} item={item}/>
     )
@@ -73,8 +75,8 @@ const ClubsList: FC = () => {
     )
   }
 
-  function renderSkeleton (arr) {
-    const items = arr.map((_, index) => <Skeleton key={index}/>)
+  function renderSkeleton (arr: undefined[]): JSX.Element {
+    const items: JSX.Element[] = arr.map((_: undefined, index: number) => <Skeleton key={index}/>)
 
     return (
       <ul className={styles.clubs}>
@@ -83,9 +85,9 @@ const ClubsList: FC = () => {
     )
   }
 
-  const items = filtersLoadingStatus === 'idle' && renderItems(filteredList);
-  const skeleton = filtersLoadingStatus === 'loading' && renderSkeleton([...new Array(18)]);
-  const error = filtersLoadingStatus === 'error' && <ErrorMessage/>;
+  const items: false | JSX.Element = filtersLoadingStatus === Status.IDLE && renderItems(filteredList);
+  const skeleton: false | JSX.Element = filtersLoadingStatus === Status.LOADING && renderSkeleton([...new Array(18)]);
+  const error: false | JSX.Element = filtersLoadingStatus === Status.ERROR && <ErrorMessage/>;
 
 
   return (

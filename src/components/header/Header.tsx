@@ -1,4 +1,4 @@
-import {Link} from "react-router-dom";
+import {Link, useLocation} from "react-router-dom";
 import Button from "../button/Button.tsx";
 import Search from '../search/Search.tsx';
 
@@ -11,6 +11,8 @@ import logo from '../../assets/svg/logo.svg';
 import styles from './header.module.scss';
 
 const Header: FC = () => {
+  const location = useLocation();
+
   return (
     <div className={styles.header}>
       <div className={classNames(styles.header__container, 'container')}>
@@ -23,7 +25,7 @@ const Header: FC = () => {
             </div>
           </Link>
         </div>
-        <Search/>
+        {location.pathname === '/' && <Search/>}
         <Button isLinkButton={true}>Clubs</Button>
       </div>
     </div>

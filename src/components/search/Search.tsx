@@ -16,11 +16,11 @@ const Search: FC = () => {
   const dispatch = useDispatch();
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const onChangeInput = (event: ChangeEvent<HTMLInputElement>) => {
+  const onChangeInput = (event: ChangeEvent<HTMLInputElement>): void => {
     dispatch(setSearchValue(event.target.value))
   }
 
-  const onClickClose = () => {
+  const onClickClose = (): void => {
     dispatch(setSearchValue(''));
     inputRef.current?.focus();
   }

@@ -1,32 +1,31 @@
 import {useHttp} from '../hooks/http.hook.ts';
 
-import {createAsyncThunk, createSlice} from '@reduxjs/toolkit';
+import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
 
+import {RootState} from '../store/store.ts';
 
-const initialState = {
+import {Club} from '../@types/types.ts';
+
+import {_apiBase, _apiKey} from '../constants/apiConstants.ts';
+import {_transformClubs} from '../utils/formatUtils.ts';
+
+export enum Status {
+  LOADING = 'loading',
+  IDLE = 'idle',
+  ERROR = 'error'
+}
+
+type ClubSliceState = {
+  clubs: Club[];
+  filtersLoadingStatus: Status;
+}
+
+const initialState: ClubSliceState = {
   clubs: [],
-  filtersLoadingStatus: 'idle'
+  filtersLoadingStatus: Status.IDLE
 }
 
-export const _apiBase = 'https://api.npoint.io/';
-export const _apiKey = 'a11d5364beb387fc9602';
-
-export const _transformClubs = (clubs) => {
-  return {
-    id: clubs.idTeam,
-    title: clubs.strTeam,
-    formedYear: clubs.intFormedYear,
-    league: clubs.strLeague,
-    stadium: clubs.strStadium,
-    stadiumCapacity: clubs.intStadiumCapacity,
-    website: clubs.strWebsite,
-    description: clubs.strDescriptionEN || 'There is no description',
-    country: clubs.strCountry,
-    imgSrc: `/images/clubs/${clubs.strTeamBadge}`,
-  }
-}
-
-export const fetchClubs = createAsyncThunk(
+export const fetchClubs = createAsyncThunk<Club[]>(
   'clubs/fetchClubs',
   async () => {
     const {request} = useHttp();
@@ -44,20 +43,20 @@ export const clubSlice = createSlice({
     builder
       .addCase(fetchClubs.pending, state => {
         state.clubs = [];
-        state.filtersLoadingStatus = 'loading';
+        state.filtersLoadingStatus = Status.LOADING;
       })
-      .addCase(fetchClubs.fulfilled, (state, action) => {
+      .addCase(fetchClubs.fulfilled, (state, action: PayloadAction<Club[]>) => {
         state.clubs = action.payload;
-        state.filtersLoadingStatus = 'idle';
+        state.filtersLoadingStatus = Status.IDLE;
       })
       .addCase(fetchClubs.rejected, state => {
         state.clubs = [];
-        state.filtersLoadingStatus = 'error';
+        state.filtersLoadingStatus = Status.ERROR;
       })
 
   }
 })
 
-export const selectClubs = state => state.clubs;
+export const selectClubs = (state: RootState) => state.clubs;
 
 export default clubSlice.reducer

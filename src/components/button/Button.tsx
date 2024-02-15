@@ -5,7 +5,7 @@ import {selectFavorites} from '../../slices/favoriteSlice.ts';
 
 import {Link} from 'react-router-dom';
 
-import {FC, ReactNode} from 'react';
+import {FC, JSX, ReactNode} from 'react';
 
 import classNames from 'classnames';
 
@@ -56,7 +56,7 @@ const Button: FC<ButtonProps> = (props) => {
 
   const {clubs} = useSelector(selectFavorites);
 
-  const renderButton = () => {
+  const renderButton = (): JSX.Element | undefined => {
       if (isLinkButton) {
         return <Link
           to='/clubs'

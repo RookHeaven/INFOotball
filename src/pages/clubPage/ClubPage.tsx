@@ -2,28 +2,18 @@ import Button from '../../components/button/Button.tsx';
 
 import {useLoaderData} from 'react-router-dom';
 
+import {Club} from '../../@types/types.ts';
+
 import classNames from 'classnames';
 
 import styles from './clubPage.module.scss';
 
-interface Club {
-  imgSrc: string;
-  title: string;
-  formedYear: string;
-  league: string;
-  country: string;
-  stadium: string;
-  stadiumCapacity: string;
-  website: string;
-  description: string;
-}
-
 const ClubPage = () => {
   const club: Club = useLoaderData() as Club;
 
-  const getColumnsStyle = () => {
-    const length = club.description.length;
-    let descriptionStyle = 'none';
+  const getColumnsStyle = (): string => {
+    const length: number = club.description.length;
+    let descriptionStyle: string = 'none';
 
     if (length >= 500 && length < 1500) {
       descriptionStyle = '2 500px';

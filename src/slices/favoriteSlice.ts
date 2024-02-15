@@ -1,6 +1,15 @@
-import { createSlice } from '@reduxjs/toolkit'
+import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 
-const initialState = {
+import {RootState} from '../store/store.ts';
+
+import {Club} from '../@types/types.ts';
+
+
+type FavoriteSliceState = {
+  clubs: Club[];
+}
+
+const initialState: FavoriteSliceState = {
   clubs: []
 }
 
@@ -8,10 +17,10 @@ export const favoriteSlice = createSlice({
   name: 'favorites',
   initialState,
   reducers: {
-    addToFavorite: (state, action) => {
+    addToFavorite: (state, action: PayloadAction<Club>) => {
       state.clubs.push(action.payload);
     },
-    removeFromFavorite: (state, action) => {
+    removeFromFavorite: (state, action: PayloadAction<string>) => {
       state.clubs = state.clubs.filter(club => club.id !== action.payload);
     },
     clearAllFavorite: (state) => {
@@ -20,7 +29,7 @@ export const favoriteSlice = createSlice({
   },
 })
 
-export const selectFavorites = state => state.favorites;
+export const selectFavorites = (state: RootState) => state.favorites;
 
 export const {
   addToFavorite,
