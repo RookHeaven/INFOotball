@@ -2,14 +2,17 @@ import Button from '../button/Button.tsx';
 
 import {useDispatch, useSelector} from 'react-redux';
 
-import {selectFilters, setActiveTab, TabsTitles} from '../../slices/filterSlice.ts';
+import {FC, memo} from 'react';
+
+import {setActiveTab, TabsTitles} from '../../slices/filterSlice.ts';
 
 import styles from './tabs.module.scss';
+import {RootState} from '../../store/store.ts';
 
 const tabsTitles: TabsTitles[] = [TabsTitles.ALL, TabsTitles.RUSSIA, TabsTitles.ENGLAND, TabsTitles.FRANCE, TabsTitles.GERMANY, TabsTitles.ITALY, TabsTitles.SPAIN];
 
-const Tabs = () => {
-  const {activeTab} = useSelector(selectFilters);
+const Tabs: FC = memo(() => {
+  const activeTab = useSelector((state: RootState) => state.filters.activeTab);
   const dispatch = useDispatch();
 
   const onClickTab = (title: TabsTitles): void => {
@@ -30,6 +33,6 @@ const Tabs = () => {
       </ul>
     </div>
   )
-}
+})
 
 export default Tabs;
