@@ -4,9 +4,9 @@ import { persistStore, persistReducer } from 'redux-persist';
 import {FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE} from 'redux-persist/es/constants';
 import storage from 'redux-persist/lib/storage';
 
-import filters from '../slices/filterSlice.ts';
-import favorites from '../slices/favoriteSlice.ts';
-import clubs from '../slices/clubSlice.ts';
+import filters from './slices/filter/filterSlice.ts';
+import favorites from './slices/favorite/favoriteSlice.ts';
+import clubs from './slices/club/clubSlice.ts';
 
 const rootReducer = combineReducers({
   filter: filters,

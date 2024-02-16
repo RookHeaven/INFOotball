@@ -1,15 +1,11 @@
 import {createSlice, PayloadAction} from '@reduxjs/toolkit'
 
-import {RootState} from '../store/store.ts';
+import {RootState} from '../../store.ts';
 
-import {Club} from '../@types/types.ts';
+import {Club} from '../../../@types/types.ts';
+import {TFavoriteSlice} from './types.ts';
 
-
-type FavoriteSliceState = {
-  clubs: Club[];
-}
-
-const initialState: FavoriteSliceState = {
+const initialState: TFavoriteSlice = {
   clubs: []
 }
 

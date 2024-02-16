@@ -1,26 +1,16 @@
-import {useHttp} from '../hooks/http.hook.ts';
+import {useHttp} from '../../../hooks/http.hook.ts';
 
 import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
 
-import {RootState} from '../store/store.ts';
+import {RootState} from '../../store.ts';
 
-import {Club} from '../@types/types.ts';
+import {Club} from '../../../@types/types.ts';
+import {TClubSlice, Status} from './types.ts';
 
-import {_apiBase, _apiKey} from '../constants/apiConstants.ts';
-import {_transformClubs} from '../utils/formatUtils.ts';
+import {_apiBase, _apiKey} from '../../../constants/apiConstants.ts';
+import {_transformClubs} from '../../../utils/formatUtils.ts';
 
-export enum Status {
-  LOADING = 'loading',
-  IDLE = 'idle',
-  ERROR = 'error'
-}
-
-type ClubSliceState = {
-  clubs: Club[];
-  filtersLoadingStatus: Status;
-}
-
-const initialState: ClubSliceState = {
+const initialState: TClubSlice = {
   clubs: [],
   filtersLoadingStatus: Status.IDLE
 }

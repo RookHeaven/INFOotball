@@ -4,10 +4,12 @@ import {useDispatch, useSelector} from 'react-redux';
 
 import {FC, memo} from 'react';
 
-import {setActiveTab, TabsTitles} from '../../slices/filterSlice.ts';
+import {setActiveTab} from '../../redux/slices/filter/filterSlice.ts';
+
+import {TabsTitles} from '../../redux/slices/filter/types.ts';
 
 import styles from './tabs.module.scss';
-import {RootState} from '../../store/store.ts';
+import {RootState} from '../../redux/store.ts';
 
 const tabsTitles: TabsTitles[] = [TabsTitles.ALL, TabsTitles.RUSSIA, TabsTitles.ENGLAND, TabsTitles.FRANCE, TabsTitles.GERMANY, TabsTitles.ITALY, TabsTitles.SPAIN];
 

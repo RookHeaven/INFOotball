@@ -5,7 +5,7 @@ import {Provider} from 'react-redux';
 
 import router from './router/router.tsx'
 
-import {persistor, store} from './store/store.ts';
+import {persistor, store} from './redux/store.ts';
 import {PersistGate} from 'redux-persist/integration/react';
 
 import './style/style.scss';

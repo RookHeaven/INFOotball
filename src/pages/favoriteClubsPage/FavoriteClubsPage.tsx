@@ -4,7 +4,7 @@ import Button from '../../components/button/Button.tsx';
 
 import {useDispatch, useSelector} from 'react-redux';
 
-import {clearAllFavorite, selectFavorites} from '../../slices/favoriteSlice.ts';
+import {clearAllFavorite, selectFavorites} from '../../redux/slices/favorite/favoriteSlice.ts';
 
 import {FC, JSX} from 'react';
 

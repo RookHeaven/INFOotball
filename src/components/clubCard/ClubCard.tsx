@@ -1,20 +1,17 @@
 import Button from '../button/Button.tsx';
 
-import {addToFavorite, removeFromFavorite, selectFavorites} from '../../slices/favoriteSlice.ts';
+import {addToFavorite, removeFromFavorite, selectFavorites} from '../../redux/slices/favorite/favoriteSlice.ts';
 import {useDispatch, useSelector} from 'react-redux';
 import {Link} from 'react-router-dom';
 
 import {FC} from 'react';
 
 import {Club} from '../../@types/types.ts';
+import {TClubCard} from './types.ts';
 
 import styles from '../clubCard/clubCard.module.scss';
 
-type ClubCardProps = {
-  item: Club;
-}
-
-const ClubCard: FC<ClubCardProps> = ({item}) => {
+const ClubCard: FC<TClubCard> = ({item}) => {
   const {clubs} = useSelector(selectFavorites);
   const dispatch = useDispatch();
 

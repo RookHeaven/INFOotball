@@ -4,15 +4,15 @@ import Skeleton from '../skeleton/Skeleton.tsx';
 
 import {useState, useEffect, FC, JSX} from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import {AppDispatch} from '../../store/store.ts';
+import {AppDispatch} from '../../redux/store.ts';
 
-import {fetchClubs, selectClubs, Status} from '../../slices/clubSlice.ts';
-import {selectFilters} from '../../slices/filterSlice.ts';
+import {fetchClubs, selectClubs} from '../../redux/slices/club/clubSlice.ts';
+import {selectFilters} from '../../redux/slices/filter/filterSlice.ts';
 
 import {Club} from '../../@types/types.ts';
+import {Status} from '../../redux/slices/club/types.ts';
 
 import styles from './clubsList.module.scss';
-
 
 
 const ClubsList: FC = () => {

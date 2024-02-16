@@ -6,7 +6,7 @@ import ClubPage from '../pages/clubPage/ClubPage.tsx';
 
 import {createBrowserRouter, createRoutesFromElements, Route} from 'react-router-dom';
 
-import {clubLoader} from './loaders.ts';
+import {clubLoader} from './loaders/loaders.ts';
 
 const router = createBrowserRouter(
 

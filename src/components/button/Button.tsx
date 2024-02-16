@@ -1,11 +1,13 @@
 /// <reference types="vite-plugin-svgr/client" />
 
 import {useSelector} from 'react-redux';
-import {selectFavorites} from '../../slices/favoriteSlice.ts';
+import {selectFavorites} from '../../redux/slices/favorite/favoriteSlice.ts';
 
 import {Link} from 'react-router-dom';
 
-import {FC, JSX, ReactNode} from 'react';
+import {FC, JSX} from 'react';
+
+import {IButton} from './types.ts';
 
 import classNames from 'classnames';
 
@@ -17,25 +19,7 @@ import Close from '../../assets/icons/close.svg?react';
 
 import styles from './button.module.scss';
 
-interface ButtonProps {
-  isLinkButton?: boolean;
-  isTabButton?: boolean;
-  isCardButton?: boolean;
-  isBackButton?: boolean;
-  isClearCardButton?: boolean;
-  isClearAllCardButton?: boolean;
-  isLinkClubButton?: boolean;
-  isRemoveCardButton?: boolean;
-  onClickTabButton?: () => void;
-  onClickCardButton?: () => void;
-  onClickClearCardButton?: () => void;
-  onClickClearAllCardButton?: () => void;
-  isActiveTab?: boolean;
-  clubID?: string;
-  children?: ReactNode;
-}
-
-const Button: FC<ButtonProps> = (props) => {
+const Button: FC<IButton> = (props) => {
   const {
     isLinkButton,
     isTabButton,
