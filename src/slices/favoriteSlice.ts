@@ -29,7 +29,7 @@ export const favoriteSlice = createSlice({
   },
 })
 
-export const selectFavorites = (state: RootState) => state.favorites;
+export const selectFavorites = (state: RootState) => state.persistedReducer.favorite;
 
 export const {
   addToFavorite,

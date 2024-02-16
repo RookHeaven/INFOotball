@@ -49,7 +49,7 @@ export const filterSlice = createSlice({
   },
 })
 
-export const selectFilters = (state: RootState) => state.filters;
+export const selectFilters = (state: RootState) => state.persistedReducer.filter;
 
 export const { setActiveTab, setCurrentOption, setSearchValue } = filterSlice.actions
 

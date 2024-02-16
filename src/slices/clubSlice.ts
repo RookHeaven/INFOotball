@@ -57,6 +57,6 @@ export const clubSlice = createSlice({
   }
 })
 
-export const selectClubs = (state: RootState) => state.clubs;
+export const selectClubs = (state: RootState) => state.persistedReducer.club;
 
 export default clubSlice.reducer

@@ -12,7 +12,7 @@ import {RootState} from '../../store/store.ts';
 const tabsTitles: TabsTitles[] = [TabsTitles.ALL, TabsTitles.RUSSIA, TabsTitles.ENGLAND, TabsTitles.FRANCE, TabsTitles.GERMANY, TabsTitles.ITALY, TabsTitles.SPAIN];
 
 const Tabs: FC = memo(() => {
-  const activeTab = useSelector((state: RootState) => state.filters.activeTab);
+  const activeTab = useSelector((state: RootState) => state.persistedReducer.filter.activeTab);
   const dispatch = useDispatch();
 
   const onClickTab = (title: TabsTitles): void => {

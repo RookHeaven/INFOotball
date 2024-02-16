@@ -9,10 +9,10 @@ import style from './app.module.scss';
 const App: FC = () => {
 
   return (
-      <div className={style.wrapper}>
-          <Header/>
-          <Outlet/>
-      </div>
+    <div className={style.wrapper}>
+      <Header/>
+      <Outlet/>
+    </div>
   )
 }
 

@@ -18,6 +18,10 @@
     cursor: pointer !important;
     transition: all $trans-default !important;
 
+    @include hover-focus {
+      box-shadow: 0 0 0 1px $jade !important;
+    }
+
     &--is-focused {
       box-shadow: 0 0 0 1px $jade !important;
     }

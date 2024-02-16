@@ -24,7 +24,7 @@ const options: Option[] = [
 ]
 
 const Sort: FC = memo(() => {
-  const currentOption = useSelector((state: RootState) => state.filters.currentOption);
+  const currentOption = useSelector((state: RootState) => state.persistedReducer.filter.currentOption);
   const dispatch = useDispatch();
 
   const onClickOption = (option: SingleValue<string | Option> | null): void => {
