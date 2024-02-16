@@ -3,12 +3,13 @@ import Button from '../../components/button/Button.tsx';
 import {useLoaderData} from 'react-router-dom';
 
 import {Club} from '../../@types/types.ts';
+import {FC} from 'react';
 
 import classNames from 'classnames';
 
 import styles from './clubPage.module.scss';
 
-const ClubPage = () => {
+export const ClubPage: FC = () => {
   const club: Club = useLoaderData() as Club;
 
   const getColumnsStyle = (): string => {
@@ -49,5 +50,3 @@ const ClubPage = () => {
     </div>
   );
 }
-
-export default ClubPage;

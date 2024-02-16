@@ -6,7 +6,7 @@ import {FC} from 'react';
 
 import styles from './mainPage.module.scss';
 
-const MainPage: FC = () => {
+export const MainPage: FC = () => {
 
   return (
     <div className={styles.content}>
@@ -20,5 +20,3 @@ const MainPage: FC = () => {
     </div>
   )
 }
-
-export default MainPage;

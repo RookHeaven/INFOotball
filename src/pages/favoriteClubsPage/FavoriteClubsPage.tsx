@@ -15,7 +15,7 @@ import Heart from '../../assets/icons/heart.svg?react';
 import styles from './favoriteClubsPage.module.scss';
 
 
-const FavoriteClubsPage: FC = () => {
+export const FavoriteClubsPage: FC = () => {
   const {clubs} = useSelector(selectFavorites);
   const dispatch = useDispatch();
 
@@ -63,5 +63,3 @@ const FavoriteClubsPage: FC = () => {
     </div>
   )
 }
-
-export default FavoriteClubsPage;
