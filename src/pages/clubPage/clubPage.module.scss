@@ -62,6 +62,14 @@
     }
   }
 
+  &__descriptionTwo {
+    columns: 2 500px;
+  }
+
+  &__descriptionThree {
+    columns: 3 250px;
+  }
+
   span {
     color: $jade;
   }

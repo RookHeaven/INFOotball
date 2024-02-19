@@ -1,4 +1,4 @@
-export interface Club {
+export interface IClub {
   formedYear: string;
   country: string;
   website: string;
@@ -11,7 +11,7 @@ export interface Club {
   imgSrc: string;
 }
 
-export interface DataClub {
+export interface IDataClub {
   idTeam: string;
   strTeam: string;
   intFormedYear: string;

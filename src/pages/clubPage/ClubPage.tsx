@@ -2,7 +2,7 @@ import Button from '../../components/button/Button.tsx';
 
 import {useLoaderData} from 'react-router-dom';
 
-import {Club} from '../../@types/types.ts';
+import {IClub} from '../../@types/types.ts';
 import {FC} from 'react';
 
 import classNames from 'classnames';
@@ -10,26 +10,11 @@ import classNames from 'classnames';
 import styles from './clubPage.module.scss';
 
 export const ClubPage: FC = () => {
-  const club: Club = useLoaderData() as Club;
-
-  const getColumnsStyle = (): string => {
-    const length: number = club.description.length;
-    let descriptionStyle: string = 'none';
-
-    if (length >= 500 && length < 1500) {
-      descriptionStyle = '2 500px';
-    }
-
-    if (length >= 1500) {
-      descriptionStyle = '3 250px';
-    }
-
-    return descriptionStyle;
-  }
+  const club: IClub = useLoaderData() as IClub;
 
   return (
     <div className={classNames(styles.club)}>
-      <div className={classNames(styles.club__container)}>
+      <div className={styles.club__container}>
         <div className={styles.club__top}>
           <img src={club.imgSrc} width='250' height='250' alt="Football club team badge."/>
           <div className={styles.club__info}>
@@ -43,7 +28,10 @@ export const ClubPage: FC = () => {
           </div>
         </div>
         <div className={styles.club__bottom}>
-          <p style={{columns: getColumnsStyle()}} className={styles.club__description}>{club.description}</p>
+          <p className={classNames(
+            styles.club__description,
+            (club.description.length >= 500 && club.description.length < 1500) && styles.club__descriptionTwo,
+            club.description.length >= 1500 && styles.club__descriptionThree)}>{club.description}</p>
           <Button isBackButton={true}>Back to Main Page</Button>
         </div>
       </div>

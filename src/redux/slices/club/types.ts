@@ -1,4 +1,4 @@
-import {Club} from '../../../@types/types.ts';
+import {IClub} from '../../../@types/types.ts';
 
 export enum Status {
   LOADING = 'loading',
@@ -7,6 +7,6 @@ export enum Status {
 }
 
 export type TClubSlice = {
-  clubs: Club[];
+  clubs: IClub[];
   filtersLoadingStatus: Status;
 }

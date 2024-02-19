@@ -6,7 +6,7 @@ import {Link} from 'react-router-dom';
 
 import {FC} from 'react';
 
-import {Club} from '../../@types/types.ts';
+import {IClub} from '../../@types/types.ts';
 import {TClubCard} from './types.ts';
 
 import styles from '../clubCard/clubCard.module.scss';
@@ -20,7 +20,7 @@ const ClubCard: FC<TClubCard> = ({item}) => {
     ? 'Remove from favorites'
     : 'Add to favorites';
 
-  const onToggleClub = (item: Club): void => {
+  const onToggleClub = (item: IClub): void => {
     isClubInFavorites
       ? dispatch(removeFromFavorite(item.id))
       : dispatch(addToFavorite(item));

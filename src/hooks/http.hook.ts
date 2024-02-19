@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {DataClub} from '../@types/types.ts';
+import {IDataClub} from '../@types/types.ts';
 
 export const useHttp = () => {
 
@@ -8,9 +8,9 @@ export const useHttp = () => {
                          data: null = null,
                          headers = {
                              'Content-Type': 'application/json'
-                              }): Promise<DataClub[]> => {
+                              }): Promise<IDataClub[]> => {
 
-    const response = await axios.get<DataClub[]>(url, {method, data, headers});
+    const response = await axios.get<IDataClub[]>(url, {method, data, headers});
 
     return response.data;
   };

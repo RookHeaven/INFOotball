@@ -1,5 +1,5 @@
-import {Club} from '../../@types/types.ts';
+import {IClub} from '../../@types/types.ts';
 
 export type TFavoriteClub = {
-  item: Club;
+  item: IClub;
 }

@@ -4,7 +4,7 @@ import {createAsyncThunk, createSlice, PayloadAction} from '@reduxjs/toolkit';
 
 import {RootState} from '../../store.ts';
 
-import {Club} from '../../../@types/types.ts';
+import {IClub} from '../../../@types/types.ts';
 import {TClubSlice, Status} from './types.ts';
 
 import {_apiBase, _apiKey} from '../../../constants/apiConstants.ts';
@@ -15,7 +15,7 @@ const initialState: TClubSlice = {
   filtersLoadingStatus: Status.IDLE
 }
 
-export const fetchClubs = createAsyncThunk<Club[]>(
+export const fetchClubs = createAsyncThunk<IClub[]>(
   'clubs/fetchClubs',
   async () => {
     const {request} = useHttp();
@@ -35,7 +35,7 @@ export const clubSlice = createSlice({
         state.clubs = [];
         state.filtersLoadingStatus = Status.LOADING;
       })
-      .addCase(fetchClubs.fulfilled, (state, action: PayloadAction<Club[]>) => {
+      .addCase(fetchClubs.fulfilled, (state, action: PayloadAction<IClub[]>) => {
         state.clubs = action.payload;
         state.filtersLoadingStatus = Status.IDLE;
       })

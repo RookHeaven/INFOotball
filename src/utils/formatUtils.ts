@@ -1,6 +1,6 @@
-import {Club, DataClub} from '../@types/types.ts';
+import {IClub, IDataClub} from '../@types/types.ts';
 
-export const _transformClubs = (clubs: DataClub): Club => {
+export const _transformClubs = (clubs: IDataClub): IClub => {
   return {
     id: clubs.idTeam,
     title: clubs.strTeam,

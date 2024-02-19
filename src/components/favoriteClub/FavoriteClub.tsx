@@ -5,7 +5,7 @@ import {removeFromFavorite} from '../../redux/slices/favorite/favoriteSlice.ts';
 
 import {FC} from 'react';
 
-import {Club} from '../../@types/types.ts';
+import {IClub} from '../../@types/types.ts';
 import {TFavoriteClub} from './types.ts';
 
 import styles from './favoriteClub.module.scss';
@@ -13,7 +13,7 @@ import styles from './favoriteClub.module.scss';
 const FavoriteClub: FC<TFavoriteClub> = ({item}) => {
   const dispatch = useDispatch();
 
-  const onClearFavoriteClub = (item: Club): void => {
+  const onClearFavoriteClub = (item: IClub): void => {
     dispatch(removeFromFavorite(item.id))
   }
 

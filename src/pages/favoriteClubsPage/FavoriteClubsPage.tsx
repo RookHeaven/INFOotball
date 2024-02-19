@@ -8,7 +8,7 @@ import {clearAllFavorite, selectFavorites} from '../../redux/slices/favorite/fav
 
 import {FC, JSX} from 'react';
 
-import {Club} from '../../@types/types.ts';
+import {IClub} from '../../@types/types.ts';
 
 import Heart from '../../assets/icons/heart.svg?react';
 
@@ -23,7 +23,7 @@ export const FavoriteClubsPage: FC = () => {
     dispatch(clearAllFavorite())
   }
 
-  function renderItems (arr: Club[]): JSX.Element {
+  function renderItems (arr: IClub[]): JSX.Element {
     const items: JSX.Element[] = arr.map(item => <FavoriteClub key={item.id} item={item}/>)
 
     return (
