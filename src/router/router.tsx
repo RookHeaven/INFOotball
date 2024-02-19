@@ -22,7 +22,9 @@ const router = createBrowserRouter(
              lazy={(async () => {const { ClubPage } = await import("../pages/clubPage/ClubPage.tsx")
         return { Component: ClubPage }})}/>
     </Route>
-  )
+  ), {
+    basename: '/INFOotball/'
+  }
 )
 
 export default router;

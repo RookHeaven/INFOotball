@@ -11,6 +11,6 @@ export const _transformClubs = (clubs: IDataClub): IClub => {
     website: clubs.strWebsite,
     description: clubs.strDescriptionEN || 'There is no description',
     country: clubs.strCountry,
-    imgSrc: `/images/clubs/${clubs.strTeamBadge}`,
+    imgSrc: `./images/clubs/${clubs.strTeamBadge}`,
   }
 }

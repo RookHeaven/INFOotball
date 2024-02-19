@@ -16,7 +16,7 @@ export const ClubPage: FC = () => {
     <div className={classNames(styles.club)}>
       <div className={styles.club__container}>
         <div className={styles.club__top}>
-          <img src={club.imgSrc} width='250' height='250' alt="Football club team badge."/>
+          <img src={`.${club.imgSrc}`} width='250' height='250' alt="Football club team badge."/>
           <div className={styles.club__info}>
             <h2 className={styles.club__title}>{club.title}</h2>
             <p>Formed year: <span>{club.formedYear}</span></p>
