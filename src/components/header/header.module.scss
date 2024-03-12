@@ -2,13 +2,8 @@
 @import '../../style/mixins';
 
 .header {
-  //position: sticky;
-  //z-index: 10;
-  //top: 0;
   padding: 40px 0;
   border-radius: 10px 10px 0 0;
-  //background-color: darken($jade, 12%);
-  //background: linear-gradient(180deg,$jade 85%,rgba(4,24,39,0) 100%);
   border-bottom: 1px solid $white-smoke;
 
   &__container {

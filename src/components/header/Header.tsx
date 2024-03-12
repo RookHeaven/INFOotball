@@ -14,7 +14,7 @@ const Header: FC = () => {
   const location = useLocation();
 
   return (
-    <div className={styles.header}>
+    <header className={styles.header}>
       <div className={classNames(styles.header__container, 'container')}>
         <div className={styles.header__logo}>
           <Link to='/'>
@@ -28,7 +28,7 @@ const Header: FC = () => {
         {location.pathname === '/' && <Search/>}
         <Button isLinkButton={true}>Clubs</Button>
       </div>
-    </div>
+    </header>
   )
 }
 

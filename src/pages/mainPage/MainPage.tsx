@@ -9,7 +9,7 @@ import styles from './mainPage.module.scss';
 export const MainPage: FC = () => {
 
   return (
-    <div className={styles.content}>
+    <main className={styles.content}>
       <div className='container'>
         <div className={styles.content__sorting}>
           <Tabs/>
@@ -17,6 +17,6 @@ export const MainPage: FC = () => {
         </div>
         <ClubsList/>
       </div>
-    </div>
+    </main>
   )
 }
