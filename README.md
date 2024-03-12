@@ -8,7 +8,7 @@ And if you want to find a specific club, simply use the search bar or filtering.
     <img src="./INFOotball.png" alt="My Project GIF" width="3120" style="width: 100%; height: auto">
 </div>
 
-### ⚽ [View published version]()
+### ⚽ [View published version](https://rookheaven.github.io/INFOotball/)
 
 # Quick Start Guide
 Before you begin, ensure that **Node.js** is installed on your system.
