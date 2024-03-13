@@ -10,7 +10,7 @@ export const MainPage: FC = () => {
 
   return (
     <main className={styles.content}>
-      <div className='container'>
+      <div className={'container'}>
         <div className={styles.content__sorting}>
           <Tabs/>
           <Sort/>
